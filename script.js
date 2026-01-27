@@ -1,122 +1,134 @@
-// Expanded vocabulary with more levels for the placement test
+// ==========================
+// Levels for Placement Test
+// ==========================
 const levels = {
+  1: ["casa", "libro", "perro"],
+  2: ["desempeñar", "sopesar", "inefable"],
+  3: ["yuxtaposición", "perseverancia", "elocuencia"]
+};
+
+// ==========================
+// State
+// ==========================
+let currentLevel = 1;
+let testIndex = 0;
+let practiceIndex = 0;
+
+// ==========================
+// Practice Questions
+// ==========================
+const practiceQuestions = {
   1: [
-    { word: "casa", definition: "House" },
-    { word: "libro", definition: "Book" },
-    { word: "perro", definition: "Dog" },
-    { word: "sol", definition: "Sun" },
-    { word: "agua", definition: "Water" }
-  ],
-  2: [
-    { word: "desempeñar", definition: "To perform / carry out" },
-    { word: "sopesar", definition: "To weigh / consider" },
-    { word: "inefable", definition: "Indescribable / beyond words" },
-    { word: "ubicuidad", definition: "Ubiquity / being everywhere" },
-    { word: "efímero", definition: "Ephemeral / short-lived" }
-  ],
-  3: [
-    { word: "yuxtaposición", definition: "Juxtaposition" },
-    { word: "perseverancia", definition: "Perseverance" },
-    { word: "elocuencia", definition: "Eloquence" },
-    { word: "concesión", definition: "Concession" },
-    { word: "subyugado", definition: "Subjugated" }
+    {
+      paragraph: "María estaba muy resignada después de perder el partido de futbol.",
+      question: "¿Qué significa 'resignada' en este contexto?",
+      choices: [
+        "Maria se sintió muy cansada después del partido.",
+        "Maria aceptó perder su partido de futbol",
+        "Maria se sintió muy feliz después del partido."
+      ],
+      correct: 1
+    },
+    {
+      paragraph: "El gato estaba muy curioso al ver el nuevo juguete.",
+      question: "¿Qué significa 'curioso' aquí?",
+      choices: ["Curioso", "Perezoso", "Hambriento"],
+      correct: 0
+    }
   ]
 };
 
-// State management
-let currentLevel = 1;
-let currentIndex = 0;
-let isPlacementTest = false;
-let testLevel = 1;
-let testIndex = 0;
-const testWordsPerLevel = 2;
-const totalLevels = Object.keys(levels).length;
-
-// UI update functions
-function updateUI() {
-  const words = levels[currentLevel];
-  document.getElementById("word").textContent = words[currentIndex].word;
-  document.getElementById("definition").textContent = "";
-  document.getElementById("level").textContent = currentLevel;
-  
-  if (document.getElementById("current-word-num")) {
-    document.getElementById("current-word-num").textContent = currentIndex + 1;
-    document.getElementById("total-words-num").textContent = words.length;
-  }
-}
-
+// ==========================
 // Placement Test Logic
+// ==========================
 function startPlacementTest() {
-  isPlacementTest = true;
-  testLevel = 1;
-  testIndex = 0;
   document.getElementById("intro-card").classList.add("hidden");
   document.getElementById("test-card").classList.remove("hidden");
+  testIndex = 0;
+  currentLevel = 1;
   showNextTestWord();
 }
 
 function showNextTestWord() {
-  const words = levels[testLevel];
-  document.getElementById("test-word").textContent = words[testIndex].word;
-  document.getElementById("test-progress").textContent = `Evaluando nivel ${testLevel}...`;
+  const words = levels[currentLevel];
+  if (testIndex >= words.length) {
+    finishPlacementTest(currentLevel);
+    return;
+  }
+  document.getElementById("test-word").textContent = words[testIndex];
+  document.getElementById("test-progress").textContent = `Palabra ${testIndex + 1} de ${words.length} del nivel ${currentLevel}`;
 }
 
 function handleTestResponse(known) {
   if (known) {
-    // If they know it, move to next index or next level
     testIndex++;
-    if (testIndex >= testWordsPerLevel) {
-      if (testLevel < totalLevels) {
-        testLevel++;
-        testIndex = 0;
-      } else {
-        finishPlacementTest(testLevel);
-        return;
-      }
+    if (testIndex >= levels[currentLevel].length && currentLevel < Object.keys(levels).length) {
+      currentLevel++;
+      testIndex = 0;
     }
   } else {
-    // If they don't know it, their level is the one before this one (or level 1)
-    finishPlacementTest(Math.max(1, testLevel));
+    finishPlacementTest(currentLevel);
     return;
   }
   showNextTestWord();
 }
 
 function finishPlacementTest(finalLevel) {
-  isPlacementTest = false;
-  currentLevel = finalLevel;
-  currentIndex = 0;
-  
-  document.getElementById("placement-section").classList.remove("active");
+  alert(`Tu nivel inicial es: Nivel ${finalLevel}`);
+  currentLevel = 1; // Always start practice at level 1
+  testIndex = 0;
+
   document.getElementById("placement-section").classList.add("hidden");
-  document.getElementById("learning-section").classList.remove("hidden");
-  
-  alert(`Tu nivel inicial es: ${finalLevel}`);
-  updateUI();
+  document.getElementById("practice").classList.remove("hidden");
+  practiceIndex = 0;
+  showPracticeQuestion();
 }
 
-// Learning Mode functions
-function showDefinition() {
-  document.getElementById("definition").textContent =
-    levels[currentLevel][currentIndex].definition;
-}
-
-function nextWord() {
-  currentIndex++;
-  const words = levels[currentLevel];
-  if (currentIndex >= words.length) {
-    currentIndex = 0;
-    if (levels[currentLevel + 1]) {
-      currentLevel++;
-    } else {
-      alert("¡Has terminado todas las palabras!");
-      currentLevel = 1;
-    }
+// ==========================
+// Show Practice Question
+// ==========================
+function showPracticeQuestion() {
+  const questions = practiceQuestions[currentLevel];
+  if (practiceIndex >= questions.length) {
+    document.getElementById("practice").innerHTML =
+      "<h2>¡Felicidades! Has terminado la práctica.</h2>";
+    return;
   }
-  updateUI();
+
+  const q = questions[practiceIndex];
+  document.getElementById("contextParagraph").textContent = q.paragraph;
+  document.getElementById("questionText").textContent = q.question;
+
+  const choicesDiv = document.getElementById("choices");
+  choicesDiv.innerHTML = "";
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = choice;
+    btn.onclick = () => checkAnswer(i);
+    choicesDiv.appendChild(btn);
+  });
+
+  document.getElementById("nextBtn").classList.add("hidden");
 }
 
-// Initialize
-window.onload = () => {
-  // If we wanted to skip test, we'd call updateUI() here
-};
+// ==========================
+// Check Answer
+// ==========================
+function checkAnswer(selectedIndex) {
+  const questions = practiceQuestions[currentLevel];
+  const q = questions[practiceIndex];
+  if (selectedIndex === q.correct) {
+    alert("¡Correcto! ✔️");
+  } else {
+    alert(`¡Incorrecto! ❌ La respuesta correcta es "${q.choices[q.correct]}"`);
+  }
+  document.getElementById("nextBtn").classList.remove("hidden");
+}
+
+// ==========================
+// Next Question
+// ==========================
+function nextQuestion() {
+  practiceIndex++;
+  showPracticeQuestion();
+}
