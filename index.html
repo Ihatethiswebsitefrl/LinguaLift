@@ -2,26 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spanish Membean Prototype</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Spanish Membean Prototype</h1>
+  <div id="app">
+    <h1>Spanish Membean Prototype</h1>
 
-  <div id="level-info">
-    <p>Nivel: <span id="level">1</span></p>
+    <!-- Welcome / Placement Test Section -->
+    <div id="placement-section" class="active">
+      <div id="intro-card">
+        <h2>Bienvenido</h2>
+        <p>Vamos a determinar tu nivel actual de español.</p>
+        <button id="start-test-btn" onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+      </div>
+
+      <div id="test-card" class="hidden">
+        <h3>Prueba de Nivel</h3>
+        <p id="test-word"></p>
+        <div class="test-actions">
+          <button onclick="handleTestResponse(true)">Conozco esta palabra</button>
+          <button onclick="handleTestResponse(false)">No conozco esta palabra</button>
+        </div>
+        <p id="test-progress"></p>
+      </div>
+    </div>
+
+    <!-- Main Learning Section -->
+    <div id="learning-section" class="hidden">
+      <div id="level-info">
+        <p>Nivel: <span id="level">1</span></p>
+      </div>
+      
+      <div id="progress-info">
+        <p>Palabra: <span id="current-word-num">1</span> / <span id="total-words-num">3</span></p>
+      </div>
+
+      <div id="flashcard">
+        <p id="word">Palabra aparecerá aquí</p>
+        <button onclick="showDefinition()">Mostrar definición</button>
+        <p id="definition"></p>
+      </div>
+
+      <button onclick="nextWord()">Siguiente palabra</button>
+    </div>
   </div>
-
-  <div id="flashcard">
-    <p id="word">Palabra aparecerá aquí</p>
-    <button onclick="showDefinition()">Mostrar definición</button>
-    <p id="definition"></p>
-  </div>
-
-  <button onclick="nextWord()">Siguiente palabra</button>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
