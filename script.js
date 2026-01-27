@@ -2,9 +2,11 @@
 // Levels for Placement Test
 // ==========================
 const levels = {
-  1: ["casa", "libro", "perro"],
-  2: ["desempeñar", "sopesar", "inefable"],
-  3: ["yuxtaposición", "perseverancia", "elocuencia"]
+  1: ["casa", "libro", "perro", "sol", "feliz", "agua", "pan", "día"],
+  2: ["desempeñar", "sopesar", "aceptar", "paciencia", "comenzar", "terminar", "joven", "tarde"],
+  3: ["analizar", "perseverancia", "elocuencia", "comprender", "creativo", "persistir", "adaptar", "eficaz"],
+  4: ["eficiente", "concesión", "subjetivo", "prudente", "estratégico", "moderado", "analítico", "previsor"],
+  5: ["abstruso", "inexorable", "parsimonioso", "prolífico", "elucidar", "obnubilar", "concomitante"]
 };
 
 // ==========================
@@ -32,8 +34,18 @@ const practiceQuestions = {
     {
       paragraph: "El gato estaba muy curioso al ver el nuevo juguete.",
       question: "¿Qué significa 'curioso' aquí?",
-      choices: ["Curioso", "Perezoso", "Hambriento"],
-      correct: 0
+      choices: [
+        "El gato está muy confundido",
+        "Está muy enojado el gato sobre su nuevo juguete",
+        "El gato quiere saber más sobre el juguete"
+      ],
+      correct: 2
+    },
+    {
+      paragraph: "Como Jimena trabajaba, ella nunca tuvo tiempo para hacer las tareas de la casa.",
+      question: "¿Qué significa 'nunca' en este contexto?",
+      choices: ["Todos los días", "En alguna ocasión", "No en ningún momento"],
+      correct: 2
     }
   ]
 };
