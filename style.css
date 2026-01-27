@@ -1,28 +1,141 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   text-align: center;
-  margin: 50px;
-  background-color: #f0f8ff;
+  margin: 0;
+  padding: 50px 20px;
+  background-color: #f7fafc;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 h1 {
-  color: #333;
+  color: #2b6cb0;
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Sections */
+#placement-section, #learning-section {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+/* Placement Test */
+#intro-card h2 {
+  color: #2d3748;
+  margin-bottom: 15px;
+}
+
+#test-word {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #2c5282;
+  margin: 30px 0;
+}
+
+.test-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#test-progress {
+  color: #718096;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Learning Mode */
+#level-info, #progress-info {
+  font-size: 1em;
+  color: #4a5568;
+  margin: 5px 0;
+  font-weight: 500;
 }
 
 #flashcard {
-  border: 2px solid #333;
-  padding: 20px;
-  margin: 20px auto;
-  width: 300px;
+  border: 2px solid #edf2f7;
+  padding: 50px 20px;
+  margin: 30px auto;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
+#flashcard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+#word {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #1a365d;
+  margin-bottom: 25px;
+}
+
+#definition {
+  height: 1.5em;
+  font-style: italic;
+  color: #38a169;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+/* Buttons */
 button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+button:hover {
+  background-color: #2b6cb0;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
 
+button:active {
+  transform: translateY(1px);
+}
+
+#start-test-btn {
+  background-color: #48bb78;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+#start-test-btn:hover {
+  background-color: #38a169;
+}
+
+.test-actions button:first-child {
+  background-color: #4299e1;
+}
+
+.test-actions button:last-child {
+  background-color: #a0aec0;
+}
