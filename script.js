@@ -1,28 +1,44 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 50px;
-  background-color: #f0f8ff;
+// Sample words for 2 levels
+const levels = {
+  1: [
+    { word: "casa", definition: "House" },
+    { word: "libro", definition: "Book" },
+    { word: "perro", definition: "Dog" }
+  ],
+  2: [
+    { word: "desempeñar", definition: "To perform / carry out" },
+    { word: "sopesar", definition: "To weigh / consider" },
+    { word: "inefable", definition: "Indescribable / beyond words" }
+  ]
+};
+
+let currentLevel = 1;
+let currentIndex = 0;
+
+// Show first word
+document.getElementById("word").textContent = levels[currentLevel][currentIndex].word;
+
+// Show definition
+function showDefinition() {
+  document.getElementById("definition").textContent =
+    levels[currentLevel][currentIndex].definition;
 }
 
-h1 {
-  color: #333;
+// Go to next word
+function nextWord() {
+  currentIndex++;
+  const words = levels[currentLevel];
+  if (currentIndex >= words.length) {
+    currentIndex = 0;
+    // Move to next level if exists
+    if (levels[currentLevel + 1]) {
+      currentLevel++;
+      document.getElementById("level").textContent = currentLevel;
+    } else {
+      alert("¡Has terminado todas las palabras!");
+      currentLevel = 1; // restart
+    }
+  }
+  document.getElementById("word").textContent = levels[currentLevel][currentIndex].word;
+  document.getElementById("definition").textContent = "";
 }
-
-#flashcard {
-  border: 2px solid #333;
-  padding: 20px;
-  margin: 20px auto;
-  width: 300px;
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-
