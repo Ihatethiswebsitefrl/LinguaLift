@@ -5,17 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spanish Membean Prototype</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f4f8; }
+    #app { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
+    button { margin: 5px; padding: 10px 15px; border: none; border-radius: 5px; background: #4caf50; color: #fff; cursor: pointer;}
+    button:hover { background: #45a049;}
+    #choices button { background: #2196F3; }
+    #choices button:hover { background: #1976D2; }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
   <div id="app">
     <h1>Spanish Membean Prototype</h1>
 
-    <!-- Welcome / Placement Test Section -->
-    <div id="placement-section" class="active">
+    <!-- Placement Test -->
+    <div id="placement-section">
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button id="start-test-btn" onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+        <button onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
       </div>
 
       <div id="test-card" class="hidden">
@@ -29,23 +38,12 @@
       </div>
     </div>
 
-    <!-- Main Learning Section -->
-    <div id="learning-section" class="hidden">
-      <div id="level-info">
-        <p>Nivel: <span id="level">1</span></p>
-      </div>
-      
-      <div id="progress-info">
-        <p>Palabra: <span id="current-word-num">1</span> / <span id="total-words-num">3</span></p>
-      </div>
-
-      <div id="flashcard">
-        <p id="word">Palabra aparecerá aquí</p>
-        <button onclick="showDefinition()">Mostrar definición</button>
-        <p id="definition"></p>
-      </div>
-
-      <button onclick="nextWord()">Siguiente palabra</button>
+    <!-- Practice / Paragraph Mode -->
+    <div id="practice" class="hidden">
+      <p id="contextParagraph"></p>
+      <p id="questionText"></p>
+      <div id="choices"></div>
+      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
     </div>
   </div>
 
