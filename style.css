@@ -1,141 +1,110 @@
+/* ===== Global ===== */
 body {
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
   margin: 0;
-  padding: 50px 20px;
-  background-color: #f7fafc;
-  color: #2d3748;
-  min-height: 100vh;
+  padding: 0;
 }
 
 #app {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
+/* ===== Header ===== */
 h1 {
-  color: #2b6cb0;
+  text-align: center;
+  color: #1e40af;
   margin-bottom: 30px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  font-size: 2em;
 }
 
-.hidden {
-  display: none !important;
-}
-
-/* Sections */
-#placement-section, #learning-section {
-  background-color: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
-}
-
-/* Placement Test */
-#intro-card h2 {
-  color: #2d3748;
-  margin-bottom: 15px;
-}
-
-#test-word {
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #2c5282;
-  margin: 30px 0;
-}
-
-.test-actions {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-#test-progress {
-  color: #718096;
-  font-size: 0.9em;
-  font-style: italic;
-}
-
-/* Learning Mode */
-#level-info, #progress-info {
-  font-size: 1em;
-  color: #4a5568;
-  margin: 5px 0;
-  font-weight: 500;
-}
-
-#flashcard {
-  border: 2px solid #edf2f7;
-  padding: 50px 20px;
-  margin: 30px auto;
+/* ===== Cards ===== */
+#placement-section, #practice {
   background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  margin-bottom: 30px;
   transition: all 0.3s ease;
 }
 
-#flashcard:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+#intro-card h2, #test-card h3 {
+  margin-top: 0;
+  color: #1e40af;
 }
 
-#word {
-  font-size: 2.5em;
-  font-weight: 800;
-  color: #1a365d;
-  margin-bottom: 25px;
-}
-
-#definition {
-  height: 1.5em;
-  font-style: italic;
-  color: #38a169;
-  font-weight: 600;
+/* ===== Paragraph Mode ===== */
+#contextParagraph {
   font-size: 1.2em;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-/* Buttons */
-button {
-  background-color: #3182ce;
-  color: white;
+#choices button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: 600;
+  background-color: #1e40af;
+  color: #fff;
+  font-size: 1em;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: #2b6cb0;
-  transform: translateY(-1px);
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+#choices button:hover {
+  background-color: #2563eb;
 }
 
-button:active {
-  transform: translateY(1px);
+#nextBtn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #10b981;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-#start-test-btn {
-  background-color: #48bb78;
-  font-size: 1.1em;
-  margin-top: 10px;
+#nextBtn:hover {
+  background-color: #059669;
 }
 
-#start-test-btn:hover {
-  background-color: #38a169;
+/* ===== Hidden / Active ===== */
+.hidden {
+  display: none;
 }
 
-.test-actions button:first-child {
-  background-color: #4299e1;
+.active {
+  display: block;
 }
 
-.test-actions button:last-child {
-  background-color: #a0aec0;
+/* ===== Placement Test Buttons ===== */
+.test-actions button {
+  margin-right: 15px;
+  margin-top: 15px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1e40af;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.test-actions button:hover {
+  background-color: #2563eb;
+}
+
+/* ===== Progress Info ===== */
+#test-progress {
+  margin-top: 15px;
+  font-style: italic;
+  color: #374151;
 }
