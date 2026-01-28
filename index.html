@@ -107,14 +107,14 @@
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+        <button id="start-test-btn">Comenzar Prueba de Nivel</button>
       </div>
 
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
-        <button onclick="handleTestResponse(true)">Conozco esta palabra</button>
-        <button onclick="handleTestResponse(false)">No conozco esta palabra</button>
+        <button id="know-word-btn">Conozco esta palabra</button>
+        <button id="dont-know-word-btn">No conozco esta palabra</button>
       </div>
     </div>
 
@@ -122,7 +122,7 @@
       <p id="contextParagraph"></p>
       <p id="questionText"></p>
       <div id="choices"></div>
-      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
+      <button id="nextBtn" class="hidden">Siguiente</button>
     </div>
   </div>
 
@@ -135,26 +135,23 @@
     let wrongAttempts = 0;
     let currentLevel = 1;
 
-    // Pretest arrays
     let testWords = [];
-    let testMapping = []; // which level each word belongs to
+    let testMapping = [];
     let levelScore = {1:0,2:0,3:0,4:0,5:0};
 
+    // --- Functions ---
     function startPlacementTest() {
-      // Build pretest from words.js: 3 words per level
       testWords = [];
       testMapping = [];
-      for (let lvl = 1; lvl <= 5; lvl++) {
+      for (let lvl = 1; lvl <=5; lvl++) {
         const questions = practiceQuestions[lvl];
-        for (let i = 0; i < 3; i++) {
+        for (let i=0; i<3; i++){
           if (questions[i]) {
             testWords.push(questions[i].question);
             testMapping.push(lvl);
           }
         }
       }
-
-      // Reset counters
       testIndex = 0;
       levelScore = {1:0,2:0,3:0,4:0,5:0};
 
@@ -172,8 +169,8 @@
       }
     }
 
-    function handleTestResponse(isKnown) {
-      if (isKnown) {
+    function handleTestResponse(isKnown){
+      if (isKnown){
         const lvl = testMapping[testIndex];
         levelScore[lvl]++;
       }
@@ -182,11 +179,10 @@
     }
 
     function mapLevelFromTest() {
-      // Get level with most known words
       let maxLevel = 1;
       let maxScore = 0;
-      for (let lvl = 1; lvl <=5; lvl++) {
-        if (levelScore[lvl] > maxScore) {
+      for (let lvl=1; lvl<=5; lvl++){
+        if(levelScore[lvl] > maxScore){
           maxScore = levelScore[lvl];
           maxLevel = lvl;
         }
@@ -204,10 +200,11 @@
 
     function showPracticeQuestion() {
       const questions = practiceQuestions[currentLevel];
-      if (!questions || practiceIndex >= questions.length) {
+      if (!questions || practiceIndex >= questions.length){
         document.getElementById("practice").innerHTML =
           `<h2>¡Nivel ${currentLevel} completado!</h2>
-           <button onclick="location.reload()">Reiniciar</button>`;
+           <button id="restart-btn">Reiniciar</button>`;
+        document.getElementById("restart-btn").addEventListener('click',()=>location.reload());
         return;
       }
 
@@ -224,35 +221,48 @@
       q.choices.forEach((choice,i)=>{
         const btn = document.createElement("button");
         btn.innerText = choice;
-        btn.onclick = () => checkAnswer(i,q.correct);
+        btn.addEventListener('click',()=>checkAnswer(i,q.correct));
         choices.appendChild(btn);
       });
     }
 
-    function checkAnswer(selected, correct) {
+    function checkAnswer(selected, correct){
       const buttons = document.querySelectorAll("#choices button");
-      if (selected === correct) {
+      if(selected === correct){
         buttons[selected].style.background = "#4caf50";
-        buttons.forEach(b => b.disabled = true);
+        buttons.forEach(b=>b.disabled=true);
         document.getElementById("nextBtn").classList.remove("hidden");
       } else {
         buttons[selected].style.background = "#f44336";
         buttons[selected].disabled = true;
         wrongAttempts++;
-        if (wrongAttempts >= 2) {
+        if(wrongAttempts >= 2){
           const questions = practiceQuestions[currentLevel];
           const q = questions[practiceIndex];
           buttons[q.correct].style.background = "#4caf50";
-          buttons.forEach(b => b.disabled = true);
+          buttons.forEach(b=>b.disabled=true);
           document.getElementById("nextBtn").classList.remove("hidden");
         }
       }
     }
 
-    function nextQuestion() {
+    function nextQuestion(){
       practiceIndex++;
       showPracticeQuestion();
     }
+
+    // --- Event Listeners ---
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('start-test-btn').addEventListener('click', startPlacementTest);
+      document.getElementById('know-word-btn').addEventListener('click', ()=>handleTestResponse(true));
+      document.getElementById('dont-know-word-btn').addEventListener('click', ()=>handleTestResponse(false));
+      document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+
+      // Make functions global for HTML access (just in case)
+      window.startPlacementTest = startPlacementTest;
+      window.handleTestResponse = handleTestResponse;
+      window.nextQuestion = nextQuestion;
+    });
   </script>
 </body>
 </html>
