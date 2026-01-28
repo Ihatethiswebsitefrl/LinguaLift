@@ -18,7 +18,7 @@ function startPlacementTest() {
 function showNextTestWord() {
   if (testIndex < testWords.length) {
     document.getElementById("test-word").innerText = `¿Conoces esta palabra?: ${testWords[testIndex]}`;
-    document.getElementById("test-progress").innerText = `Palabra ${testIndex + 1} de ${testWords.length}`;
+  
   } else {
     mapLevelFromTest();
   }
@@ -102,4 +102,5 @@ function nextQuestion() {
   practiceIndex++;
   showPracticeQuestion();
 }
+
 
