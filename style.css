@@ -1,101 +1,166 @@
 /* ===== Google Font ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-body, h1, h2, h3, p, button {
-    font-family: 'Poppins', sans-serif !important;
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
 }
 
 /* ===== Global ===== */
 body {
-    background: linear-gradient(135deg, #e0f7fa, #e1bee7);
-    color: #111827;
-    margin: 0;
-    padding: 20px 0; /* Espacio para que no toque los bordes al hacer scroll */
-    min-height: 100vh;
-    display: block; /* Permite scroll natural */
-    overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #ede9fe, #e0f2fe);
+  margin: 0;
+  padding: 30px 0;
+  min-height: 100vh;
+  color: #111827;
 }
 
 /* ===== App Container ===== */
 #app {
-    max-width: 720px;
-    width: 90%;
-    margin: 40px auto; /* Centrado manual */
-    padding: 30px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    position: relative;
+  max-width: 760px;
+  width: 92%;
+  margin: auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  position: relative;
 }
 
+/* ===== Title ===== */
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #6b21a8, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Level Badge ===== */
 #level-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #ff9800;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* ===== Cards & Paragraph Mode ===== */
-#placement-section, #practice {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+/* ===== Cards ===== */
+#placement-section,
+#practice {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
 }
 
+/* ===== Intro Text ===== */
+#placement-section p {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ===== Context Paragraph ===== */
 #contextParagraph {
-    font-size: 1.15em;
-    line-height: 1.7;
-    margin-bottom: 20px;
-    text-align: left;
-    border-left: 5px solid #6b21a8;
-    padding-left: 20px;
-    color: #374151;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 22px;
+  padding: 18px 22px;
+  background: #faf5ff;
+  border-left: 6px solid #7c3aed;
+  border-radius: 14px;
+  color: #374151;
 }
 
+/* ===== Question ===== */
 #questionText {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #6b21a8;
-    margin-top: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6b21a8;
+  margin-bottom: 15px;
 }
 
-/* ===== Buttons ===== */
+/* ===== Buttons (Global) ===== */
 button {
-    font-size: 1em;
-    font-weight: 600;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+/* ===== Primary Buttons ===== */
+button:not(#choices button) {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:not(#choices button):hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ===== Choice Buttons ===== */
 #choices button {
-    width: 100%;
-    margin: 10px 0;
-    background: linear-gradient(135deg, #6b21a8, #a855f7);
-    color: #fff;
-    text-align: left; /* Mejor para definiciones largas */
+  width: 100%;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #6b21a8, #8b5cf6);
+  color: white;
+  text-align: left;
+  padding: 16px 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
 #choices button:hover {
-    transform: translateX(5px);
-    filter: brightness(1.1);
+  transform: translateX(6px);
+  filter: brightness(1.08);
 }
 
+/* ===== Disabled Choice ===== */
+#choices button:disabled {
+  opacity: 0.9;
+  cursor: default;
+}
+
+/* ===== Next Button ===== */
 #nextBtn {
-    background: linear-gradient(135deg, #10b981, #34d399);
-    color: #fff;
-    width: 100%;
-    margin-top: 20px;
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  margin-top: 20px;
 }
 
-.hidden { display: none; }
+/* ===== Hidden ===== */
+.hidden {
+  display: none;
+}
+
+/* ===== Mobile Polish ===== */
+@media (max-width: 480px) {
+  #app {
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  #contextParagraph {
+    font-size: 1rem;
+  }
+}
