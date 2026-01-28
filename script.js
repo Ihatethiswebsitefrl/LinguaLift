@@ -50,6 +50,8 @@ function mapLevelFromTest() {
 
 function showPracticeQuestion() {
   const questions = practiceQuestions[currentLevel]; 
+  
+  // 1. Verificación de seguridad
   if (!questions || practiceIndex >= questions.length) {
     document.getElementById("practice").innerHTML = `
       <h2>¡Nivel ${currentLevel} completado!</h2>
@@ -58,6 +60,38 @@ function showPracticeQuestion() {
     `;
     return;
   }
+
+  const questionData = questions[practiceIndex];
+  wrongAttempts = 0;
+
+  // 2. LÓGICA DE DETECCIÓN: ¿Es una historia o una frase simple?
+  // Si existe 'paragraph', lo usamos. Si no, usamos 'phrase' o lo que tengas.
+  const paragraphElement = document.getElementById("contextParagraph");
+  const storyText = questionData.paragraph || questionData.phrase || "Lee el siguiente contexto:";
+  paragraphElement.innerText = storyText;
+
+  // 3. Mostrar la pregunta
+  // En nivel 5 la pregunta es "badinaje", en nivel 1 es "¿Qué significa...?"
+  const questionElement = document.getElementById("questionText");
+  if (currentLevel >= 4) {
+      questionElement.innerText = questionData.question; 
+  } else {
+      questionElement.innerText = `Pregunta: ${questionData.question}`;
+  }
+
+  // 4. Renderizar botones de opciones
+  const choicesContainer = document.getElementById("choices");
+  choicesContainer.innerHTML = "";
+  document.getElementById("nextBtn").classList.add("hidden");
+
+  questionData.choices.forEach((choice, index) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice;
+    // IMPORTANTE: Asegúrate que la propiedad sea 'correct' en todos tus niveles
+    btn.onclick = () => checkAnswer(index, questionData.correct);
+    choicesContainer.appendChild(btn);
+  });
+}
 
   const questionData = questions[practiceIndex];
   wrongAttempts = 0;
@@ -102,5 +136,6 @@ function nextQuestion() {
   practiceIndex++;
   showPracticeQuestion();
 }
+
 
 
