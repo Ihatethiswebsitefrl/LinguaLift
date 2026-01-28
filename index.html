@@ -4,48 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinguaLift</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Link your CSS file here -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <div id="app">
+
+    <!-- Level Badge -->
     <div id="level-badge" class="hidden">
       Nivel: <span id="level-num">1</span>
     </div>
 
+    <!-- App Title -->
     <h1>LinguaLift</h1>
 
+    <!-- Placement Test Section -->
     <div id="placement-section">
+
+      <!-- Intro Card -->
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button id="startTestBtn" onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+        <button id="startTestBtn">Comenzar Prueba de Nivel</button>
       </div>
 
+      <!-- Test Card -->
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
-        <button id="knowBtn" onclick="handleTestResponse(true)">Conozco esta palabra</button>
-        <button id="dontKnowBtn" onclick="handleTestResponse(false)">No conozco esta palabra</button>
+        <button id="knowBtn">Conozco esta palabra</button>
+        <button id="dontKnowBtn">No conozco esta palabra</button>
       </div>
+
     </div>
 
+    <!-- Practice Section -->
     <div id="practice" class="hidden">
       <p id="contextParagraph"></p>
       <p id="questionText"></p>
       <div id="choices"></div>
-      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
+      <button id="nextBtn" class="hidden">Siguiente</button>
     </div>
+
   </div>
 
-  <!-- Link your words.js here -->
+  <!-- Load words.js first -->
   <script src="words.js"></script>
-  <!-- Link main script.js -->
+
+  <!-- Then load your main script -->
   <script src="script.js"></script>
 </body>
 </html>
