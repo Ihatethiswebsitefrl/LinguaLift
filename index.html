@@ -1,44 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LinguaLift</title>
+  <title>Spanish Membean Prototype</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f0f4f8;
-    }
-    #app {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #4caf50;
-      color: #fff;
-      cursor: pointer;
-    }
-    button:hover { background: #45a049; }
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f4f8; }
+    #app { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
+    button { margin: 5px; padding: 10px 15px; border: none; border-radius: 5px; background: #4caf50; color: #fff; cursor: pointer;}
+    button:hover { background: #45a049;}
     #choices button { background: #2196F3; }
     #choices button:hover { background: #1976D2; }
     .hidden { display: none; }
   </style>
 </head>
-
 <body>
   <div id="app">
-    <h1>LinguaLift</h1>
+    <h1>Spanish Membean Prototype</h1>
 
     <!-- Placement Test -->
     <div id="placement-section">
@@ -59,24 +38,21 @@
       </div>
     </div>
 
-    <!-- Practice Mode -->
+    <!-- Practice / Paragraph Mode -->
     <div id="practice" class="hidden">
       <p id="contextParagraph"></p>
       <p id="questionText"></p>
       <div id="choices"></div>
       <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
-      <div id="practice" class="hidden">
-  <p id="contextParagraph"></p>
-  <p id="questionText"></p>
-  <div id="choices"></div>
-  <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
-  <div id="completion-message" class="hidden"></div>
-</div>
     </div>
-
   </div>
-
- <script src="words.js"></script>
 
   <script src="script.js"></script>
 </body>
+</html>
+<div id="practice" class="hidden">
+  <p id="contextParagraph"></p>
+  <p id="questionText"></p> <!-- This was missing -->
+  <div id="choices"></div>
+  <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
+</div>
