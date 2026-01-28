@@ -26,7 +26,10 @@ body {
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   transition: all 0.3s ease;
+
+  position: relative;
 }
+  
 #level-badge {
   position: absolute;
   top: 15px;
@@ -133,5 +136,6 @@ button:hover {
 .hidden {
   display: none;
 }
+
 
 
