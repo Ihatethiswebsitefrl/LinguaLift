@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinguaLift</title>
 
-  <!-- ===== Fonts ===== -->
+  <!-- ===== Fonts & CSS ===== -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    body, h1, h2, h3, p, button {
-      font-family: 'Poppins', sans-serif;
-    }
+    body, h1, h2, h3, p, button { font-family: 'Poppins', sans-serif; }
 
     body {
       background: linear-gradient(135deg, #e0f7fa, #e1bee7);
@@ -86,14 +84,9 @@
       text-align: left;
     }
 
-    #choices button:hover {
-      transform: translateX(5px);
-    }
+    #choices button:hover { transform: translateX(5px); }
 
-    #nextBtn {
-      background: linear-gradient(135deg, #10b981, #34d399);
-      width: 100%;
-    }
+    #nextBtn { background: linear-gradient(135deg, #10b981, #34d399); width: 100%; }
 
     .hidden { display: none; }
   </style>
@@ -130,7 +123,10 @@
     </div>
   </div>
 
-  <!-- ===== SCRIPT ===== -->
+  <!-- ===== WORDS.JS ===== -->
+  <script src="words.js"></script>
+
+  <!-- ===== MAIN SCRIPT ===== -->
   <script>
     let testIndex = 0;
     let knownCount = 0;
@@ -138,16 +134,8 @@
     let practiceIndex = 0;
     let wrongAttempts = 0;
 
+    // Pretest words
     const testWords = ["Feliz", "Dudar", "Elocuencia", "Prudente", "Abstruso"];
-
-    const practiceQuestions = {
-      1: [{
-        paragraph: "Ella estaba muy feliz después del examen.",
-        question: "Feliz",
-        choices: ["Contento", "Triste", "Cansado"],
-        correct: 0
-      }]
-    };
 
     function startPlacementTest() {
       testIndex = 0;
@@ -173,6 +161,7 @@
     }
 
     function mapLevelFromTest() {
+      // Map pretest known count to level (1–5)
       currentLevel = Math.min(5, knownCount + 1);
       document.getElementById("level-num").innerText = currentLevel;
       document.getElementById("level-badge").classList.remove("hidden");
@@ -183,10 +172,11 @@
     }
 
     function showPracticeQuestion() {
-      const questions = practiceQuestions[currentLevel];
+      const questions = practiceQuestions[currentLevel]; // from words.js
       if (!questions || practiceIndex >= questions.length) {
         document.getElementById("practice").innerHTML =
-          "<h2>¡Nivel completado!</h2>";
+          `<h2>¡Nivel ${currentLevel} completado!</h2>
+           <button onclick="location.reload()">Reiniciar</button>`;
         return;
       }
 
@@ -196,15 +186,15 @@
       document.getElementById("contextParagraph").innerText = q.paragraph;
       document.getElementById("questionText").innerText = q.question;
 
-      const choices = document.getElementById("choices");
-      choices.innerHTML = "";
+      const choicesContainer = document.getElementById("choices");
+      choicesContainer.innerHTML = "";
       document.getElementById("nextBtn").classList.add("hidden");
 
       q.choices.forEach((choice, i) => {
         const btn = document.createElement("button");
         btn.innerText = choice;
         btn.onclick = () => checkAnswer(i, q.correct);
-        choices.appendChild(btn);
+        choicesContainer.appendChild(btn);
       });
     }
 
@@ -215,8 +205,18 @@
         buttons.forEach(b => b.disabled = true);
         document.getElementById("nextBtn").classList.remove("hidden");
       } else {
+        wrongAttempts++;
         buttons[selected].style.background = "#f44336";
         buttons[selected].disabled = true;
+
+        if (wrongAttempts >= 2) {
+          // show correct answer after 2 wrong attempts
+          const questions = practiceQuestions[currentLevel];
+          const correctIndex = questions[practiceIndex].correct;
+          buttons[correctIndex].style.background = "#4caf50";
+          buttons.forEach(b => b.disabled = true);
+          document.getElementById("nextBtn").classList.remove("hidden");
+        }
       }
     }
 
