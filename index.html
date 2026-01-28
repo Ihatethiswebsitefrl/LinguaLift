@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spanish Membean Prototype</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; background: #f0f4f8; }
     #app { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
@@ -13,41 +12,40 @@
     #choices button { background: #2196F3; }
     #choices button:hover { background: #1976D2; }
     .hidden { display: none; }
+    .test-actions { margin-top: 15px; }
   </style>
 </head>
 <body>
   <div id="app">
     <h1>Spanish Membean Prototype</h1>
 
-    <!-- Placement Test -->
     <div id="placement-section">
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button id="startTestBtn">Comenzar Prueba de Nivel</button>
+        <button id="startTestBtn" onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
       </div>
 
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
         <div class="test-actions">
-          <button id="knownBtn">Conozco esta palabra</button>
-          <button id="unknownBtn">No conozco esta palabra</button>
+          <button id="knownBtn" onclick="handleTestResponse(true)">Conozco esta palabra</button>
+          <button id="unknownBtn" onclick="handleTestResponse(false)">No conozco esta palabra</button>
         </div>
         <p id="test-progress"></p>
       </div>
     </div>
 
-    <!-- Practice / Paragraph Mode -->
     <div id="practice" class="hidden">
-      <p id="contextParagraph"></p>
-      <p id="questionText"></p>
+      <p id="contextParagraph" style="font-style: italic; color: #555;"></p>
+      <p id="questionText" style="font-weight: bold;"></p>
       <div id="choices"></div>
-      <button id="nextBtn" class="hidden">Siguiente</button>
+      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
     </div>
   </div>
 
-  <!-- Link to external JS -->
+  <script src="words.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
