@@ -182,7 +182,7 @@ const practiceQuestions = {
     choices: ["Con valor y determinación ante situaciones difíciles.","Con mucho miedo y escapando de cualquier problema.", "Con mucha timidez y sin querer hablar con nadie."], 
     correct: 0 
   }
-]
+],
 
   // NIVEL 2: Vocabulario Intermedio
 2: [
@@ -365,7 +365,7 @@ const practiceQuestions = {
     choices: ["Algo totalmente normal que sucede todos los días.", "Que es difícil de creer o que es extraordinario y asombroso.", "Un evento muy malo que nadie quiere volver a repetir."], 
     correct: 1 
   }
-]
+],
   // NIVEL 3: Vocabulario Avanzado
   3: [
   { 
@@ -548,7 +548,7 @@ const practiceQuestions = {
     choices: ["Que trata sobre un solo tema y no acepta otras opiniones.", "Que se realiza con la cooperación de varias disciplinas.", "Un estudio muy simple que no requiere mucho conocimiento."], 
     correct: 1 
   }
-]
+],
   // NIVEL 4: Vocabulario Académico y Formal
 4: [
   { 
@@ -731,7 +731,7 @@ const practiceQuestions = {
     choices: ["Un evento inútil donde no se decidió nada.", "Una charla larga que solo hizo perder el tiempo.", "Que produce frutos, resultados o beneficios."], 
     correct: 2 
   }
-]
+],
 
   // NIVEL 5: Vocabulario de Alto Nivel (SAT/GRE)
 5: [
@@ -916,6 +916,7 @@ const practiceQuestions = {
         correct: 1 
     }
 ]
+
 
 
 
