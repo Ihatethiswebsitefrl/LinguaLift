@@ -27,6 +27,18 @@ body {
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   transition: all 0.3s ease;
 }
+#level-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff9800;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 /* ===== Header ===== */
 h1 {
@@ -121,4 +133,5 @@ button:hover {
 .hidden {
   display: none;
 }
+
 
