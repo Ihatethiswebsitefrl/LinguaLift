@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spanish Membean Prototype</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; background: #f0f4f8; }
     #app { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
@@ -23,15 +24,15 @@
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+        <button id="startTestBtn">Comenzar Prueba de Nivel</button>
       </div>
 
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
         <div class="test-actions">
-          <button onclick="handleTestResponse(true)">Conozco esta palabra</button>
-          <button onclick="handleTestResponse(false)">No conozco esta palabra</button>
+          <button id="knownBtn">Conozco esta palabra</button>
+          <button id="unknownBtn">No conozco esta palabra</button>
         </div>
         <p id="test-progress"></p>
       </div>
@@ -42,6 +43,11 @@
       <p id="contextParagraph"></p>
       <p id="questionText"></p>
       <div id="choices"></div>
-      <button id="nextBtn" class="hidden" onclick="nextQuestion()">Siguiente</button>
+      <button id="nextBtn" class="hidden">Siguiente</button>
     </div>
   </div>
+
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
