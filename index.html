@@ -4,10 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinguaLift</title>
+
+  <!-- ===== Google Font ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* your CSS here, same as before */
+    /* ==========================
+       Your original CSS exactly
+       ========================== */
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #ede9fe, #e0f2fe);
+      margin: 0;
+      padding: 30px 0;
+      min-height: 100vh;
+      color: #111827;
+    }
+
+    #app {
+      max-width: 760px;
+      width: 92%;
+      margin: auto;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 24px;
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #6b21a8, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #level-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    #placement-section,
+    #practice {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 20px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    #placement-section p {
+      color: #4b5563;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    #contextParagraph {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      padding: 18px 22px;
+      background: #faf5ff;
+      border-left: 6px solid #7c3aed;
+      border-radius: 14px;
+      color: #374151;
+    }
+
+    #questionText {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #6b21a8;
+      margin-bottom: 15px;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:not(#choices button) {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:not(#choices button):hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    #choices button {
+      width: 100%;
+      margin: 10px 0;
+      background: linear-gradient(135deg, #6b21a8, #8b5cf6);
+      color: white;
+      text-align: left;
+      padding: 16px 18px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    #choices button:hover {
+      transform: translateX(6px);
+      filter: brightness(1.08);
+    }
+
+    #choices button:disabled {
+      opacity: 0.9;
+      cursor: default;
+    }
+
+    #nextBtn {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      margin-top: 20px;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 480px) {
+      #app { padding: 24px; }
+      h1 { font-size: 1.9rem; }
+      #contextParagraph { font-size: 1rem; }
+    }
   </style>
 </head>
+
 <body>
   <div id="app">
     <div id="level-badge" class="hidden">
@@ -20,14 +162,14 @@
       <div id="intro-card">
         <h2>Bienvenido</h2>
         <p>Vamos a determinar tu nivel actual de español.</p>
-        <button onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
+        <button id="startTestBtn" onclick="startPlacementTest()">Comenzar Prueba de Nivel</button>
       </div>
 
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
-        <button onclick="handleTestResponse(true)">Conozco esta palabra</button>
-        <button onclick="handleTestResponse(false)">No conozco esta palabra</button>
+        <button id="knowBtn" onclick="handleTestResponse(true)">Conozco esta palabra</button>
+        <button id="dontKnowBtn" onclick="handleTestResponse(false)">No conozco esta palabra</button>
       </div>
     </div>
 
@@ -39,33 +181,60 @@
     </div>
   </div>
 
-  <!-- 1️⃣ Load words.js first -->
-  <script src="words.js"></script>
-
-  <!-- 2️⃣ Then your main script -->
+  <!-- ==========================
+       Practice questions (words.js)
+       ========================== -->
   <script>
+    const practiceQuestions = {
+      1: [
+        { paragraph: "Después de ganar el torneo de ajedrez, Marta estaba muy ...", question: "¿Qué significa 'asombroso'?", choices: ["amazing", "boring", "sad"], correct: 0 },
+        { paragraph: "Mi hermano tiene una actitud muy ...", question: "¿Qué significa 'afirmación'?", choices: ["statement", "question", "lie"], correct: 0 }
+      ],
+      2: [
+        { paragraph: "El paisaje era increíblemente ...", question: "¿Qué significa 'panorámico'?", choices: ["panoramic", "tiny", "flat"], correct: 0 }
+      ]
+      // Add more levels/questions as needed
+    };
+  </script>
+
+  <!-- ==========================
+       Main JS (script.js)
+       ========================== -->
+  <script>
+    let testWords = [];
+    let testMapping = [];
+    let levelScore = {1:0,2:0,3:0,4:0,5:0};
     let testIndex = 0;
+    let currentLevel = 1;
     let practiceIndex = 0;
     let wrongAttempts = 0;
-    let currentLevel = 1;
 
-    // Pretest words (hardcoded)
+    const startBtn = document.getElementById("startTestBtn");
+    const knowBtn = document.getElementById("knowBtn");
+    const dontKnowBtn = document.getElementById("dontKnowBtn");
+    const testWordEl = document.getElementById("test-word");
+    const levelBadge = document.getElementById("level-badge");
+    const levelNumEl = document.getElementById("level-num");
+    const placementSection = document.getElementById("placement-section");
+    const testCard = document.getElementById("test-card");
+    const practiceDiv = document.getElementById("practice");
+    const contextParagraph = document.getElementById("contextParagraph");
+    const questionText = document.getElementById("questionText");
+    const choicesDiv = document.getElementById("choices");
+    const nextBtn = document.getElementById("nextBtn");
+
     const pretestWords = {
       1: ["Afirmación", "Asombroso", "Inigualable"],
-      2: ["Omnipresente", "Punzante", "Panorámico"],
-      3: ["Profundidad", "Vasallo", "Desfachatez"],
+      2: ["Omnipresente", "Picante", "Panorámico"],
+      3: ["Profundidad", "Vasallo", "Descaro"],
       4: ["Neófito", "Palurdo", "Exacerbar"],
       5: ["Inconmensurable", "Abrogar", "Consanguinidad"]
     };
 
-    let testWords = [];
-    let testMapping = [];
-    let levelScore = {1:0,2:0,3:0,4:0,5:0};
-
     function startPlacementTest() {
       testWords = [];
       testMapping = [];
-      for (let lvl = 1; lvl <=5; lvl++) {
+      for (let lvl = 1; lvl <= 5; lvl++) {
         pretestWords[lvl].forEach(word => {
           testWords.push(word);
           testMapping.push(lvl);
@@ -76,16 +245,15 @@
       levelScore = {1:0,2:0,3:0,4:0,5:0};
 
       document.getElementById("intro-card").classList.add("hidden");
-      document.getElementById("test-card").classList.remove("hidden");
+      testCard.classList.remove("hidden");
       showNextTestWord();
     }
 
     function showNextTestWord() {
       if (testIndex < testWords.length) {
-        document.getElementById("test-word").innerText =
-          `¿Conoces esta palabra?: ${testWords[testIndex]}`;
+        testWordEl.innerText = `¿Conoces esta palabra?: ${testWords[testIndex]}`;
       } else {
-        mapLevelFromTest();
+        finishPretest();
       }
     }
 
@@ -98,10 +266,10 @@
       showNextTestWord();
     }
 
-    function mapLevelFromTest() {
+    function finishPretest() {
       let maxLevel = 1;
       let maxScore = 0;
-      for (let lvl = 1; lvl <=5; lvl++) {
+      for (let lvl = 1; lvl <= 5; lvl++) {
         if (levelScore[lvl] > maxScore) {
           maxScore = levelScore[lvl];
           maxLevel = lvl;
@@ -109,10 +277,10 @@
       }
       currentLevel = maxLevel;
 
-      document.getElementById("level-num").innerText = currentLevel;
-      document.getElementById("level-badge").classList.remove("hidden");
-      document.getElementById("placement-section").classList.add("hidden");
-      document.getElementById("practice").classList.remove("hidden");
+      levelNumEl.innerText = currentLevel;
+      levelBadge.classList.remove("hidden");
+      placementSection.classList.add("hidden");
+      practiceDiv.classList.remove("hidden");
 
       practiceIndex = 0;
       showPracticeQuestion();
@@ -121,27 +289,25 @@
     function showPracticeQuestion() {
       const questions = practiceQuestions[currentLevel];
       if (!questions || practiceIndex >= questions.length) {
-        document.getElementById("practice").innerHTML =
-          `<h2>¡Nivel ${currentLevel} completado!</h2>
-           <button onclick="location.reload()">Reiniciar</button>`;
+        practiceDiv.innerHTML = `<h2>¡Nivel ${currentLevel} completado!</h2>
+          <button onclick="location.reload()">Reiniciar</button>`;
         return;
       }
 
       const q = questions[practiceIndex];
       wrongAttempts = 0;
 
-      document.getElementById("contextParagraph").innerText = q.paragraph;
-      document.getElementById("questionText").innerText = q.question;
+      contextParagraph.innerText = q.paragraph;
+      questionText.innerText = q.question;
 
-      const choices = document.getElementById("choices");
-      choices.innerHTML = "";
-      document.getElementById("nextBtn").classList.add("hidden");
+      choicesDiv.innerHTML = "";
+      nextBtn.classList.add("hidden");
 
-      q.choices.forEach((choice,i)=>{
+      q.choices.forEach((choice, i) => {
         const btn = document.createElement("button");
         btn.innerText = choice;
-        btn.onclick = () => checkAnswer(i,q.correct);
-        choices.appendChild(btn);
+        btn.onclick = () => checkAnswer(i, q.correct);
+        choicesDiv.appendChild(btn);
       });
     }
 
@@ -150,17 +316,16 @@
       if (selected === correct) {
         buttons[selected].style.background = "#4caf50";
         buttons.forEach(b => b.disabled = true);
-        document.getElementById("nextBtn").classList.remove("hidden");
+        nextBtn.classList.remove("hidden");
       } else {
         buttons[selected].style.background = "#f44336";
         buttons[selected].disabled = true;
         wrongAttempts++;
         if (wrongAttempts >= 2) {
-          const questions = practiceQuestions[currentLevel];
-          const q = questions[practiceIndex];
+          const q = practiceQuestions[currentLevel][practiceIndex];
           buttons[q.correct].style.background = "#4caf50";
           buttons.forEach(b => b.disabled = true);
-          document.getElementById("nextBtn").classList.remove("hidden");
+          nextBtn.classList.remove("hidden");
         }
       }
     }
