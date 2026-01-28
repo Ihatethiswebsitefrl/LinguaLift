@@ -1,110 +1,120 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 /* ===== Global ===== */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3f4f6;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e1bee7);
   color: #111827;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ===== App Container ===== */
 #app {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 720px;
+  width: 95%;
+  padding: 30px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
 /* ===== Header ===== */
 h1 {
   text-align: center;
-  color: #1e40af;
-  margin-bottom: 30px;
-  font-size: 2em;
+  color: #6b21a8;
+  margin-bottom: 25px;
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
 /* ===== Cards ===== */
 #placement-section, #practice {
-  background-color: #fff;
+  background: linear-gradient(to top right, #ffffff, #f0f0f0);
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  padding: 30px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#intro-card h2, #test-card h3 {
-  margin-top: 0;
-  color: #1e40af;
+#placement-section:hover, #practice:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.18);
 }
 
 /* ===== Paragraph Mode ===== */
 #contextParagraph {
-  font-size: 1.2em;
+  font-size: 1.25em;
   margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* ===== Buttons ===== */
+button {
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 #choices button {
-  display: block;
   width: 100%;
-  margin: 8px 0;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #1e40af;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #6b21a8, #a855f7);
   color: #fff;
-  font-size: 1em;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 #choices button:hover {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #9333ea, #c084fc);
 }
 
 #nextBtn {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #10b981;
+  background: linear-gradient(135deg, #10b981, #34d399);
   color: #fff;
-  font-size: 1em;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  width: 100%;
 }
 
 #nextBtn:hover {
-  background-color: #059669;
+  background: linear-gradient(135deg, #059669, #2dd4bf);
 }
 
-/* ===== Hidden / Active ===== */
-.hidden {
-  display: none;
-}
-
-.active {
-  display: block;
-}
-
-/* ===== Placement Test Buttons ===== */
+/* ===== Test Action Buttons ===== */
 .test-actions button {
-  margin-right: 15px;
-  margin-top: 15px;
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: none;
-  background-color: #1e40af;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  margin-right: 10px;
 }
 
 .test-actions button:hover {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
 }
 
-/* ===== Progress Info ===== */
+/* ===== Progress ===== */
 #test-progress {
   margin-top: 15px;
   font-style: italic;
-  color: #374151;
+  color: #6b7280;
+}
+
+/* ===== Hidden ===== */
+.hidden {
+  display: none;
 }
