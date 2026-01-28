@@ -2,9 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* ===== Reset ===== */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 /* ===== Global ===== */
 body {
@@ -92,7 +90,7 @@ h1 {
   margin-bottom: 15px;
 }
 
-/* ===== Buttons (Global) ===== */
+/* ===== Buttons ===== */
 button {
   font-family: inherit;
   font-size: 1rem;
@@ -104,7 +102,6 @@ button {
   transition: all 0.2s ease;
 }
 
-/* ===== Primary Buttons ===== */
 button:not(#choices button) {
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
@@ -117,7 +114,6 @@ button:not(#choices button):hover {
   filter: brightness(1.05);
 }
 
-/* ===== Choice Buttons ===== */
 #choices button {
   width: 100%;
   margin: 10px 0;
@@ -133,34 +129,20 @@ button:not(#choices button):hover {
   filter: brightness(1.08);
 }
 
-/* ===== Disabled Choice ===== */
 #choices button:disabled {
   opacity: 0.9;
   cursor: default;
 }
 
-/* ===== Next Button ===== */
 #nextBtn {
   background: linear-gradient(135deg, #0ea5e9, #38bdf8);
   margin-top: 20px;
 }
 
-/* ===== Hidden ===== */
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
-/* ===== Mobile Polish ===== */
 @media (max-width: 480px) {
-  #app {
-    padding: 24px;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  #contextParagraph {
-    font-size: 1rem;
-  }
+  #app { padding: 24px; }
+  h1 { font-size: 1.9rem; }
+  #contextParagraph { font-size: 1rem; }
 }
