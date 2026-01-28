@@ -4,14 +4,14 @@ let currentLevel = 1;
 let practiceIndex = 0;
 let wrongAttempts = 0;
 
-// Example placement test words
 const testWords = ["Feliz", "Dudar", "Elocuencia", "Prudente", "Abstruso"];
 
 function startPlacementTest() {
   testIndex = 0;
   knownCount = 0;
-  document.getElementById("placement-section").classList.remove("hidden");
-  document.getElementById("practice").classList.add("hidden");
+  // UI logic: Hide intro, show test
+  document.getElementById("intro-card").classList.add("hidden");
+  document.getElementById("test-card").classList.remove("hidden");
   showNextTestWord();
 }
 
@@ -30,7 +30,6 @@ function handleTestResponse(isKnown) {
   showNextTestWord();
 }
 
-// Map pre-test score to levels
 function mapLevelFromTest() {
   if (knownCount <= 1) currentLevel = 1;
   else if (knownCount == 2) currentLevel = 2;
@@ -44,12 +43,12 @@ function mapLevelFromTest() {
   showPracticeQuestion();
 }
 
-// PRACTICE MODE
 function showPracticeQuestion() {
-  const questions = practiceQuestions[currentLevel]; // full 30-word pool
+  const questions = practiceQuestions[currentLevel]; 
   if (!questions || practiceIndex >= questions.length) {
     document.getElementById("practice").innerHTML = `
       <h2>¡Nivel ${currentLevel} completado!</h2>
+      <p>Has terminado todas las palabras de este nivel.</p>
       <button onclick="location.reload()">Reiniciar</button>
     `;
     return;
@@ -59,7 +58,7 @@ function showPracticeQuestion() {
   wrongAttempts = 0;
 
   document.getElementById("contextParagraph").innerText = questionData.paragraph;
-  document.getElementById("questionText").innerText = questionData.question;
+  document.getElementById("questionText").innerText = `Definición de "${questionData.question}":`;
 
   const choicesContainer = document.getElementById("choices");
   choicesContainer.innerHTML = "";
@@ -78,12 +77,12 @@ function checkAnswer(selectedIndex, correctIndex) {
   const selectedBtn = buttons[selectedIndex];
 
   if (selectedIndex === correctIndex) {
-    selectedBtn.style.background = "#4caf50";
+    selectedBtn.style.background = "#4caf50"; // Green for success
     for (let btn of buttons) btn.disabled = true;
     document.getElementById("nextBtn").classList.remove("hidden");
   } else {
     wrongAttempts++;
-    selectedBtn.style.background = "#f44336";
+    selectedBtn.style.background = "#f44336"; // Red for wrong
     selectedBtn.disabled = true;
 
     if (wrongAttempts >= 2) {
