@@ -1,115 +1,74 @@
-let testIndex = 0;
-let knownCount = 0;
-let currentLevel = 1;
-let practiceIndex = 0;
-let wrongAttempts = 0;
+// =====================
+// PRETEST WORDS
+// =====================
+const pretestWords = [
+  // Level 1
+  { word: "afirmación", level: 1 },
+  { word: "estupendo", level: 1 },
+  { word: "inigualable", level: 1 },
+  // Level 2
+  { word: "omnipresente", level: 2 },
+  { word: "penetrante", level: 2 },
+  { word: "panorámico", level: 2 },
+  // Level 3
+  { word: "profundidad", level: 3 },
+  { word: "vasallo", level: 3 },
+  { word: "descaro", level: 3 },
+  // Level 4
+  { word: "neófito", level: 4 },
+  { word: "paleto", level: 4 },
+  { word: "exacerbar", level: 4 },
+  // Level 5
+  { word: "inconmensurable", level: 5 },
+  { word: "abrogar", level: 5 },
+  { word: "consanguinidad", level: 5 }
+];
 
-const testWords = ["Feliz", "Dudar", "Elocuencia", "Prudente", "Abstruso"];
+let pretestIndex = 0;
+let pretestScore = 0;
 
-/* =====================
-   PLACEMENT TEST
-===================== */
-
+// Start Pretest
 function startPlacementTest() {
-  testIndex = 0;
-  knownCount = 0;
-
+  pretestIndex = 0;
+  pretestScore = 0;
   document.getElementById("intro-card").classList.add("hidden");
   document.getElementById("test-card").classList.remove("hidden");
-
-  showNextTestWord();
+  showNextPretestWord();
 }
 
-function showNextTestWord() {
-  if (testIndex < testWords.length) {
-    document.getElementById("test-word").innerText =
-      `¿Conoces esta palabra?: ${testWords[testIndex]}`;
+// Show Next Word
+function showNextPretestWord() {
+  if (pretestIndex < pretestWords.length) {
+    const currentWord = pretestWords[pretestIndex].word;
+    document.getElementById("test-word").innerText = 
+      `¿Conoces esta palabra?: ${currentWord}`;
   } else {
-    mapLevelFromTest();
+    finalizePretest();
   }
 }
 
+// Handle User Response
 function handleTestResponse(isKnown) {
-  if (isKnown) knownCount++;
-  testIndex++;
-  showNextTestWord();
+  if (isKnown) pretestScore++;
+  pretestIndex++;
+  showNextPretestWord();
 }
 
-function mapLevelFromTest() {
-  if (knownCount <= 1) currentLevel = 1;
-  else if (knownCount === 2) currentLevel = 2;
-  else if (knownCount === 3) currentLevel = 3;
-  else if (knownCount === 4) currentLevel = 4;
+// Map Pretest Results to Level
+function finalizePretest() {
+  // Calculate approximate level based on score
+  if (pretestScore <= 3) currentLevel = 1;
+  else if (pretestScore <= 6) currentLevel = 2;
+  else if (pretestScore <= 9) currentLevel = 3;
+  else if (pretestScore <= 12) currentLevel = 4;
   else currentLevel = 5;
 
   document.getElementById("level-num").innerText = currentLevel;
   document.getElementById("level-badge").classList.remove("hidden");
 
-  practiceIndex = 0;
   document.getElementById("placement-section").classList.add("hidden");
   document.getElementById("practice").classList.remove("hidden");
 
-  showPracticeQuestion();
-}
-
-/* =====================
-   PRACTICE MODE
-===================== */
-
-function showPracticeQuestion() {
-  const questions = practiceQuestions[currentLevel];
-
-  if (!questions || practiceIndex >= questions.length) {
-    document.getElementById("practice").innerHTML = `
-      <h2>¡Nivel ${currentLevel} completado!</h2>
-      <p>Has terminado todas las palabras de este nivel.</p>
-      <button onclick="location.reload()">Reiniciar</button>
-    `;
-    return;
-  }
-
-  const q = questions[practiceIndex];
-  wrongAttempts = 0;
-
-  document.getElementById("contextParagraph").innerText =
-    q.paragraph || q.phrase || "Lee el siguiente contexto:";
-
-  document.getElementById("questionText").innerText =
-    currentLevel >= 4 ? q.question : `Pregunta: ${q.question}`;
-
-  const choicesContainer = document.getElementById("choices");
-  choicesContainer.innerHTML = "";
-  document.getElementById("nextBtn").classList.add("hidden");
-
-  q.choices.forEach((choice, index) => {
-    const btn = document.createElement("button");
-    btn.innerText = choice;
-    btn.onclick = () => checkAnswer(index, q.correct);
-    choicesContainer.appendChild(btn);
-  });
-}
-
-function checkAnswer(selectedIndex, correctIndex) {
-  const buttons = document.querySelectorAll("#choices button");
-
-  if (selectedIndex === correctIndex) {
-    buttons[selectedIndex].style.background = "#4caf50";
-    buttons.forEach(btn => btn.disabled = true);
-    document.getElementById("nextBtn").classList.remove("hidden");
-  } else {
-    wrongAttempts++;
-    buttons[selectedIndex].style.background = "#f44336";
-    buttons[selectedIndex].disabled = true;
-
-    if (wrongAttempts >= 2) {
-      buttons[correctIndex].style.background = "#4caf50";
-      buttons.forEach(btn => btn.disabled = true);
-      document.getElementById("nextBtn").classList.remove("hidden");
-    }
-  }
-}
-
-function nextQuestion() {
-  practiceIndex++;
-  showPracticeQuestion();
+  practiceIndex = 0;
+  showPracticeQuestion(); // pulls from words.js
 }
