@@ -37,6 +37,11 @@ function mapLevelFromTest() {
   else if (knownCount == 4) currentLevel = 4;
   else currentLevel = 5;
 
+  // NEW LOGIC: Update and show the badge
+  const badge = document.getElementById("level-badge");
+  document.getElementById("level-num").innerText = currentLevel;
+  badge.classList.remove("hidden");
+
   practiceIndex = 0;
   document.getElementById("placement-section").classList.add("hidden");
   document.getElementById("practice").classList.remove("hidden");
@@ -97,3 +102,4 @@ function nextQuestion() {
   practiceIndex++;
   showPracticeQuestion();
 }
+
