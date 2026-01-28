@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinguaLift</title>
 
-  <!-- ===== Fonts & CSS ===== -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -84,14 +83,18 @@
       text-align: left;
     }
 
-    #choices button:hover { transform: translateX(5px); }
+    #choices button:hover {
+      transform: translateX(5px);
+    }
 
-    #nextBtn { background: linear-gradient(135deg, #10b981, #34d399); width: 100%; }
+    #nextBtn {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      width: 100%;
+    }
 
     .hidden { display: none; }
   </style>
 </head>
-
 <body>
   <div id="app">
     <div id="level-badge" class="hidden">
@@ -123,23 +126,38 @@
     </div>
   </div>
 
-  <!-- ===== WORDS.JS ===== -->
+  <!-- Link your words.js -->
   <script src="words.js"></script>
 
-  <!-- ===== MAIN SCRIPT ===== -->
   <script>
     let testIndex = 0;
-    let knownCount = 0;
-    let currentLevel = 1;
     let practiceIndex = 0;
     let wrongAttempts = 0;
+    let currentLevel = 1;
 
-    // Pretest words
-    const testWords = ["Feliz", "Dudar", "Elocuencia", "Prudente", "Abstruso"];
+    // Pretest arrays
+    let testWords = [];
+    let testMapping = []; // which level each word belongs to
+    let levelScore = {1:0,2:0,3:0,4:0,5:0};
 
     function startPlacementTest() {
+      // Build pretest from words.js: 3 words per level
+      testWords = [];
+      testMapping = [];
+      for (let lvl = 1; lvl <= 5; lvl++) {
+        const questions = practiceQuestions[lvl];
+        for (let i = 0; i < 3; i++) {
+          if (questions[i]) {
+            testWords.push(questions[i].question);
+            testMapping.push(lvl);
+          }
+        }
+      }
+
+      // Reset counters
       testIndex = 0;
-      knownCount = 0;
+      levelScore = {1:0,2:0,3:0,4:0,5:0};
+
       document.getElementById("intro-card").classList.add("hidden");
       document.getElementById("test-card").classList.remove("hidden");
       showNextTestWord();
@@ -155,24 +173,37 @@
     }
 
     function handleTestResponse(isKnown) {
-      if (isKnown) knownCount++;
+      if (isKnown) {
+        const lvl = testMapping[testIndex];
+        levelScore[lvl]++;
+      }
       testIndex++;
       showNextTestWord();
     }
 
     function mapLevelFromTest() {
-      // Map pretest known count to level (1–5)
-      currentLevel = Math.min(5, knownCount + 1);
+      // Get level with most known words
+      let maxLevel = 1;
+      let maxScore = 0;
+      for (let lvl = 1; lvl <=5; lvl++) {
+        if (levelScore[lvl] > maxScore) {
+          maxScore = levelScore[lvl];
+          maxLevel = lvl;
+        }
+      }
+      currentLevel = maxLevel;
+
       document.getElementById("level-num").innerText = currentLevel;
       document.getElementById("level-badge").classList.remove("hidden");
       document.getElementById("placement-section").classList.add("hidden");
       document.getElementById("practice").classList.remove("hidden");
+
       practiceIndex = 0;
       showPracticeQuestion();
     }
 
     function showPracticeQuestion() {
-      const questions = practiceQuestions[currentLevel]; // from words.js
+      const questions = practiceQuestions[currentLevel];
       if (!questions || practiceIndex >= questions.length) {
         document.getElementById("practice").innerHTML =
           `<h2>¡Nivel ${currentLevel} completado!</h2>
@@ -186,15 +217,15 @@
       document.getElementById("contextParagraph").innerText = q.paragraph;
       document.getElementById("questionText").innerText = q.question;
 
-      const choicesContainer = document.getElementById("choices");
-      choicesContainer.innerHTML = "";
+      const choices = document.getElementById("choices");
+      choices.innerHTML = "";
       document.getElementById("nextBtn").classList.add("hidden");
 
-      q.choices.forEach((choice, i) => {
+      q.choices.forEach((choice,i)=>{
         const btn = document.createElement("button");
         btn.innerText = choice;
-        btn.onclick = () => checkAnswer(i, q.correct);
-        choicesContainer.appendChild(btn);
+        btn.onclick = () => checkAnswer(i,q.correct);
+        choices.appendChild(btn);
       });
     }
 
@@ -205,15 +236,13 @@
         buttons.forEach(b => b.disabled = true);
         document.getElementById("nextBtn").classList.remove("hidden");
       } else {
-        wrongAttempts++;
         buttons[selected].style.background = "#f44336";
         buttons[selected].disabled = true;
-
+        wrongAttempts++;
         if (wrongAttempts >= 2) {
-          // show correct answer after 2 wrong attempts
           const questions = practiceQuestions[currentLevel];
-          const correctIndex = questions[practiceIndex].correct;
-          buttons[correctIndex].style.background = "#4caf50";
+          const q = questions[practiceIndex];
+          buttons[q.correct].style.background = "#4caf50";
           buttons.forEach(b => b.disabled = true);
           document.getElementById("nextBtn").classList.remove("hidden");
         }
