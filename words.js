@@ -550,72 +550,372 @@ const practiceQuestions = {
   }
 ]
   // NIVEL 4: Vocabulario Académico y Formal
-  4: [
-    { paragraph: "Fue una decisión prudente.", question: "prudente", choices: ["Moderación y cautela", "Descuidado", "Prisa"], correct: 0 },
-    { paragraph: "El análisis fue eficiente.", question: "eficiente", choices: ["Desperdicia recursos", "Logra el fin con el mínimo recurso", "Lento"], correct: 1 },
-    { paragraph: "Su talento es intrínseco.", question: "intrínseco", choices: ["Externo", "Esencial o interno", "Falso"], correct: 1 },
-    { paragraph: "El daño es irreversible.", question: "irreversible", choices: ["Que se puede cambiar", "Que no tiene vuelta atrás", "Temporal"], correct: 1 },
-    { paragraph: "Es una verdad absoluta.", question: "absoluta", choices: ["Parcial", "Entera y sin restricciones", "Dudosa"], correct: 1 },
-    { paragraph: "El proceso es sistemático.", question: "sistemático", choices: ["Aleatorio", "Que sigue un orden", "Rápido"], correct: 1 },
-    { paragraph: "Su actitud es altruista.", question: "altruista", choices: ["Egoísta", "Busca el bien ajeno", "Interesada"], correct: 1 },
-    { paragraph: "La evidencia es tangible.", question: "tangible", choices: ["Imaginaria", "Que se puede tocar o percibir claramente", "Falsa"], correct: 1 },
-    { paragraph: "El acuerdo es vinculante.", question: "vinculante", choices: ["Opcional", "Que obliga a las partes", "Breve"], correct: 1 },
-    { paragraph: "Su estilo es sobrio.", question: "sobrio", choices: ["Exagerado", "Sencillo y sin adornos", "Caro"], correct: 1 },
-    { paragraph: "La propuesta es viable.", question: "viable", choices: ["Imposible", "Que puede llevarse a cabo", "Difícil"], correct: 1 },
-    { paragraph: "Es un tema recurrente.", question: "recurrente", choices: ["Único", "Que vuelve a ocurrir", "Nuevo"], correct: 1 },
-    { paragraph: "El clima es inhóspito.", question: "inhóspito", choices: ["Acogedor", "Lugar incómodo o poco seguro", "Bello"], correct: 1 },
-    { paragraph: "Su respuesta fue ambigua.", question: "ambigua", choices: ["Clara", "Que puede entenderse de varias formas", "Directa"], correct: 1 },
-    { paragraph: "Es un derecho inalienable.", question: "inalienable", choices: ["Renunciable", "Que no se puede quitar", "Temporal"], correct: 1 },
-    { paragraph: "El éxito fue efímero.", question: "efímero", choices: ["Duradero", "Pasajero o de corta duración", "Total"], correct: 1 },
-    { paragraph: "Su discurso fue conciso.", question: "conciso", choices: ["Largo", "Breve y preciso", "Vago"], correct: 1 },
-    { paragraph: "El plan es estratégico.", question: "estratégico", choices: ["Improvisado", "Habilidad para dirigir un asunto", "Lento"], correct: 1 },
-    { paragraph: "Es una medida arbitraria.", question: "arbitraria", choices: ["Justa", "Basada en el capricho y no en la ley", "Lógica"], correct: 1 },
-    { paragraph: "Su lealtad es inquebrantable.", question: "inquebrantable", choices: ["Débil", "Que no se puede doblegar", "Falsa"], correct: 1 },
-    { paragraph: "El estudio es exhaustivo.", question: "exhaustivo", choices: ["Superficial", "Que agota todos los puntos, completo", "Rápido"], correct: 1 },
-    { paragraph: "Es un factor determinante.", question: "determinante", choices: ["Secundario", "Que decide o fija algo", "Dudoso"], correct: 1 },
-    { paragraph: "La tecnología es ubicua.", question: "ubicua", choices: ["Rara", "Que está en todas partes", "Nueva"], correct: 1 },
-    { paragraph: "Su mente es analítica.", question: "analítica", choices: ["Desorganizada", "Que descompone un todo en sus partes", "Simple"], correct: 1 },
-    { paragraph: "El arte es subjetivo.", question: "subjetivo", choices: ["Objetivo", "Basado en sentimientos personales", "Realista"], correct: 1 },
-    { paragraph: "Es un líder carismático.", question: "carismático", choices: ["Aburrido", "Que tiene capacidad de atraer o fascinar", "Serio"], correct: 1 },
-    { paragraph: "La ley es imperativa.", question: "imperativa", choices: ["Opcional", "Que manda o exige", "Vieja"], correct: 1 },
-    { paragraph: "Su éxito es legítimo.", question: "legítimo", choices: ["Ilegal", "Conforme a las leyes o la razón", "Falso"], correct: 1 },
-    { paragraph: "El cambio es inminente.", question: "inminente", choices: ["Lejano", "Que está a punto de suceder", "Dudoso"], correct: 1 },
-    { paragraph: "La reunión fue fructífera.", question: "fructífera", choices: ["Inútil", "Que produce frutos o resultados", "Larga"], correct: 1 }
-  ],
+4: [
+  { 
+    paragraph: "Tras analizar las nubes oscuras y el cambio en la dirección del viento, el capitán decidió anclar el barco en el puerto más cercano. No quería arriesgar la vida de su tripulación en una tormenta innecesaria en alta mar. Fue una decisión prudente que todos agradecieron cuando comenzó el huracán.", 
+    question: "¿Qué significa actuar de forma 'prudente'?", 
+    choices: ["Tomar decisiones con mucha prisa para terminar el trabajo.", "Actuar con moderación, cautela y buen juicio para evitar daños.", "Comportarse de forma descuidada sin pensar en el peligro."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "La nueva maquinaria de la fábrica permite producir el doble de piezas utilizando la mitad de la energía eléctrica que antes. Además, el sistema detecta fallos automáticamente, evitando que se pierda material. El análisis de producción demostró que el nuevo método es muy eficiente.", 
+    question: "¿Qué define a un proceso 'eficiente'?", 
+    choices: ["Un sistema que desperdicia recursos para lograr un objetivo.", "Realizar una tarea de forma muy lenta pero segura.", "Lograr el fin deseado utilizando el mínimo de recursos posibles."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "Aunque nunca tomó clases de música, el niño podía reproducir cualquier melodía en el piano con solo escucharla una vez. Sus padres se dieron cuenta de que su facilidad para el ritmo no era algo aprendido en una escuela. Su talento es intrínseco y forma parte de su identidad desde el nacimiento.", 
+    question: "¿Qué es algo 'intrínseco'?", 
+    choices: ["Algo esencial o interno, que no depende de lo externo.", "Un talento falso que se muestra para engañar a otros.", "Un conocimiento externo que se adquiere con mucha práctica."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "El derrame de químicos en el pequeño lago eliminó a todas las especies de peces que habían vivido allí por siglos. Los biólogos explicaron que, debido a la toxicidad del suelo, la vida acuática original nunca volverá a crecer. Lamentablemente, el daño causado es irreversible.", 
+    question: "¿Qué significa que un daño sea 'irreversible'?", 
+    choices: ["Algo que no tiene vuelta atrás y no se puede recuperar.", "Una situación que se puede cambiar o mejorar con el tiempo.", "Un cambio temporal que solo dura unos pocos días."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "El científico presentó las leyes de la gravedad como un hecho que ocurre de la misma manera en cualquier rincón del universo. No importa el idioma o la cultura, los objetos siempre caen hacia el centro del planeta. Para él, esta es una verdad absoluta que no admite ninguna duda.", 
+    question: "¿Qué es una verdad 'absoluta'?", 
+    choices: ["Una idea dudosa que cambia según el día de la semana.", "Algo que es entero, total y sin restricciones ni condiciones.", "Una opinión parcial que solo algunas personas aceptan."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "Para organizar la biblioteca, el bibliotecario decidió seguir un manual que clasificaba los libros primero por tema y luego por autor. No dejaba ningún libro al azar, asegurándose de que cada estante tuviera una lógica clara. El proceso es sistemático y permite encontrar cualquier obra en segundos.", 
+    question: "En este contexto, ¿qué es un proceso 'sistemático'?", 
+    choices: ["Que sigue un orden, método o sistema organizado.", "Un método aleatorio donde las cosas se colocan sin pensar.", "Algo que se hace muy rápido para ahorrar tiempo."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "El millonario decidió donar la mayor parte de su fortuna para construir hospitales en zonas pobres. No pidió que su nombre apareciera en los edificios ni buscó beneficios fiscales por su acción. Su actitud es altruista, ya que solo busca el bienestar de los más necesitados.", 
+    question: "¿Cómo actúa una persona 'altruista'?", 
+    choices: ["Alguien que busca el bien ajeno a costa del propio interés.", "Una acción interesada que busca una recompensa oculta.", "Una persona egoísta que solo se preocupa por su dinero."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "El detective no solo confiaba en los testimonios, sino que buscaba huellas y objetos olvidados en la escena del crimen. Finalmente, encontró un reloj roto que pertenecía al sospechoso justo debajo del sofá. Esta evidencia es tangible y será presentada en el juicio.", 
+    question: "¿Qué significa que la evidencia sea 'tangible'?", 
+    choices: ["Algo imaginario que solo existe en la mente.", "Una prueba falsa creada para engañar al juez.", "Que se puede tocar o percibir de manera clara y física."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "Al firmar el contrato de alquiler, el joven aceptó pagar la renta los primeros cinco días de cada mes. El documento legal especifica que ninguna de las dos partes puede romper el trato sin pagar una multa. El acuerdo es vinculante y debe cumplirse ante la ley.", 
+    question: "¿Qué implica un acuerdo 'vinculante'?", 
+    choices: ["Que obliga a las partes a cumplir con lo pactado.", "Un trato opcional que las personas pueden ignorar.", "Un documento muy breve que no tiene importancia legal."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "Para la gala de premios, el arquitecto decidió no usar trajes brillantes ni joyas llamativas. Eligió un traje negro mate de corte perfecto y una camisa blanca impecable, sin adornos. Su estilo es sobrio y destaca por su elegancia simple.", 
+    question: "¿Qué es un estilo 'sobrio'?", 
+    choices: ["Un diseño exagerado lleno de colores y decoraciones.", "Algo sencillo, moderado y sin adornos innecesarios.", "Un tipo de vestimenta muy cara de estilo real."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "El ingeniero presentó un plan para convertir la fábrica en un centro cultural usando energía solar. Tras revisar los costos y los permisos legales, el ayuntamiento decidió que el proyecto podía realizarse. La propuesta es viable y comenzará a construirse pronto.", 
+    question: "¿Qué significa que una propuesta sea 'viable'?", 
+    choices: ["Algo que es totalmente imposible de realizar.", "Un plan muy difícil que nadie quiere intentar.", "Que puede llevarse a cabo porque existen medios para ello."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "Cada vez que hay elecciones, surge la misma discusión sobre cómo mejorar el sistema de votación. Es un tema recurrente que aparece en las noticias cada cuatro años sin falta. Parece que nunca logramos llegar a una solución definitiva.", 
+    question: "¿Qué define a algo 'recurrente'?", 
+    choices: ["Que vuelve a ocurrir o aparecer después de un tiempo.", "Un evento único que solo sucede una vez en la vida.", "Algo totalmente nuevo que nadie había escuchado."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "En la cima de la montaña, el viento sopla tan fuerte que es imposible mantener una tienda en pie. No hay agua dulce ni vegetación, y las temperaturas bajan a niveles peligrosos. El clima es inhóspito y no es apto para vivir.", 
+    question: "¿Cómo es un lugar 'inhóspito'?", 
+    choices: ["Un sitio acogedor donde todos quieren ir de vacaciones.", "Lugar incómodo, poco seguro o nada acogedor.", "Un ambiente lleno de luz y temperatura agradable."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "Cuando le preguntaron si aceptaría el cargo, su contestación no fue ni un 'sí' ni un 'no' claros. Dijo que 'dependería de factores futuros', dejando a todos con muchas dudas. Su respuesta fue ambigua y generó confusión en el equipo.", 
+    question: "¿Qué caracteriza a una respuesta 'ambigua'?", 
+    choices: ["Una respuesta clara que todos entienden enseguida.", "Algo que puede entenderse o interpretarse de varias formas.", "Una explicación directa que no deja lugar a dudas."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "La constitución establece que la libertad de expresión es fundamental para la dignidad humana. Nadie, ni siquiera el gobierno, tiene el poder de prohibir que un ciudadano piense libremente. Es un derecho inalienable que nace con cada persona.", 
+    question: "¿Qué significa que algo sea 'inalienable'?", 
+    choices: ["Que no se puede enajenar, ceder ni quitar a su dueño.", "Algo renunciable que se puede vender por dinero.", "Un derecho temporal que caduca con el tiempo."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "El video se volvió viral en las redes sociales y millones de personas lo vieron en una hora. Sin embargo, para el día siguiente, nadie recordaba de qué se trataba ni quién lo publicó. El éxito fue efímero y desapareció rápido.", 
+    question: "¿Qué define a algo 'efímero'?", 
+    choices: ["Un éxito total que cambia la vida para siempre.", "Algo que dura por muchos siglos en la memoria.", "Que tiene una duración muy corta o es pasajero."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "El profesor nos pidió un resumen de la historia que no tuviera más de dos párrafos. Quería que explicáramos los hechos sin perder tiempo en detalles secundarios. Su propio discurso fue conciso y directo.", 
+    question: "¿Cómo es un mensaje 'conciso'?", 
+    choices: ["Que es breve y preciso, sin usar palabras de más.", "Un texto muy largo que toma horas terminar de leer.", "Una explicación vaga donde no se entiende el punto."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "Para ganar el juego, el entrenador cambió la formación del equipo en el último minuto. Colocó a los jugadores más rápidos en las bandas para sorprender al rival. El plan es estratégico y busca la victoria mediante la inteligencia.", 
+    question: "¿Qué significa que un plan sea 'estratégico'?", 
+    choices: ["Algo improvisado que se hace sin pensar.", "Habilidad para dirigir un asunto y lograr un fin.", "Un proceso muy lento que no tiene objetivo."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "El jefe decidió despedir al empleado solo porque no le gustaba cómo caminaba ese día. No hubo ninguna falta al reglamento ni una razón profesional para esa medida. Es una decisión arbitraria basada únicamente en su humor.", 
+    question: "¿Qué es una acción 'arbitraria'?", 
+    choices: ["Una decisión justa que sigue las leyes.", "Un proceso lógico que beneficia a todos.", "Algo basado en el capricho y no en la ley o la razón."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "A pesar de que le ofrecieron dinero para traicionar a su empresa, el secretario se negó. Él prometió proteger los secretos de su equipo y no pensaba romper su palabra. Su lealtad es inquebrantable y digna de confianza.", 
+    question: "¿Cómo es algo 'inquebrantable'?", 
+    choices: ["Algo que no se puede doblegar, torcer ni romper.", "Una voluntad débil que cambia con facilidad.", "Una promesa falsa que se hace por compromiso."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "Para entender la enfermedad, los científicos analizaron cada célula y el aire de la casa del paciente. No dejaron ningún factor sin investigar durante meses de trabajo. El estudio es exhaustivo y muy completo.", 
+    question: "¿Qué significa que un estudio sea 'exhaustivo'?", 
+    choices: ["Un análisis superficial que solo mira lo obvio.", "Algo que agota todos los puntos de un tema, completo.", "Un trabajo muy rápido que se hace sin cuidado."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "La falta de lluvia durante el invierno hizo que el precio de la comida subiera mucho. Sin agua, las cosechas se perdieron y no hubo suficiente oferta. La sequía fue un factor determinante en la crisis actual.", 
+    question: "¿Qué es algo 'determinante'?", 
+    choices: ["Algo que decide o fija lo que va a ocurrir.", "Un factor secundario que no influye en nada.", "Un elemento dudoso que no tiene importancia."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "Hoy en día, es casi imposible encontrar un lugar sin acceso a internet o teléfonos. En los aviones, en el campo e incluso en el océano, la red está presente. La tecnología es ubicua y está en todas partes.", 
+    question: "¿Qué significa que algo sea 'ubicuo'?", 
+    choices: ["Un invento nuevo que todavía no se ha probado.", "Algo que está presente en todas partes al mismo tiempo.", "Una tecnología rara que solo pocos pueden usar."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "Antes de actuar, ella siempre divide el problema en partes pequeñas para entenderlo mejor. No se deja llevar por las emociones, sino que usa la lógica y los datos. Su mente es analítica y busca la raíz de las cosas.", 
+    question: "¿Cómo funciona una mente 'analítica'?", 
+    choices: ["Un pensamiento simple que no requiere esfuerzo.", "Alguien desorganizado que no sabe qué hacer.", "Que descompone un todo en sus partes para entenderlo."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "Para algunos, esa pintura es una obra maestra, mientras que para otros son solo manchas. Esto sucede porque la belleza depende de los ojos de quien la mira. El arte es subjetivo y se basa en sentimientos personales.", 
+    question: "¿Qué significa que algo sea 'subjetivo'?", 
+    choices: ["Que se basa en los sentimientos o la opinión personal.", "Algo objetivo que se puede medir con una regla.", "Una realidad realista que todos ven igual."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "En cuanto el líder entró, todos dejaron de hablar para escucharlo con atención. Tiene una forma de hablar que hace que la gente confíe en él de inmediato. Es un líder carismático que fascina a las personas.", 
+    question: "¿Qué define a alguien 'carismático'?", 
+    choices: ["Alguien aburrido que no genera interés.", "Que tiene una capacidad natural para atraer o fascinar.", "Una persona muy seria que nunca habla con nadie."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "El juez explicó que el pago de impuestos no es algo que los ciudadanos elijan hacer. El reglamento obliga a todos a contribuir para los servicios públicos. La ley es imperativa y de cumplimiento obligatorio.", 
+    question: "¿Qué implica que una norma sea 'imperativa'?", 
+    choices: ["Una regla vieja que ya no tiene importancia.", "Un mandato opcional que se puede ignorar.", "Que manda, exige o es de cumplimiento forzoso."], 
+    correct: 2 
+  },
+  { 
+    paragraph: "El historiador demostró que la familia tenía los papeles reales que los hacían dueños. Todas las firmas eran verdaderas y el proceso fue legal y transparente. Su éxito es legítimo y respaldado por la justicia.", 
+    question: "¿Qué significa que algo sea 'legítimo'?", 
+    choices: ["Algo ilegal obtenido mediante engaños.", "Conforme a las leyes, a la justicia o a la razón.", "Que es falso y creado para estafar a otros."], 
+    correct: 1 
+  },
+  { 
+    paragraph: "El cielo se puso negro y las sirenas de emergencia empezaron a sonar en el pueblo. El tornado llegaría en pocos minutos y debíamos buscar refugio ya. El peligro es inminente y está a punto de suceder.", 
+    question: "¿Qué significa que algo es 'inminente'?", 
+    choices: ["Algo que está a punto de suceder o muy próximo.", "Un evento lejano que tardará muchos años.", "Una situación dudosa que probablemente nunca pase."], 
+    correct: 0 
+  },
+  { 
+    paragraph: "Los dos días de trabajo entre los médicos terminaron con la creación de una medicina nueva. Todos aportaron ideas valiosas y el resultado beneficiará a muchos. La reunión fue fructífera y dio grandes resultados.", 
+    question: "¿Cómo es una actividad 'fructífera'?", 
+    choices: ["Un evento inútil donde no se decidió nada.", "Una charla larga que solo hizo perder el tiempo.", "Que produce frutos, resultados o beneficios."], 
+    correct: 2 
+  }
+]
 
   // NIVEL 5: Vocabulario de Alto Nivel (SAT/GRE)
-  5: [
-    { paragraph: "La cena estuvo marcada por un badinaje ligero.", question: "badinaje", choices: ["Discusión violenta", "Broma o juego de palabras festivo", "Silencio"], correct: 1 },
-    { paragraph: "Sus halagos resultaron melifluos y excesivos.", question: "melifluo", choices: ["Dulce en exceso, a veces falso", "Rudo", "Difícil"], correct: 0 },
-    { paragraph: "El columnista suele invectivar contra la corrupción.", question: "invectivar", choices: ["Apoyar", "Censurar o hablar con dureza", "Ignorar"], correct: 1 },
-    { paragraph: "La sala estaba llena de objetos kitsch.", question: "kitsch", choices: ["Elegante", "Estética pretenciosa o de mal gusto", "Simple"], correct: 1 },
-    { paragraph: "La fauna del litoral se ve afectada.", question: "litoral", choices: ["Montaña", "Costa de un mar", "Bosque"], correct: 1 },
-    { paragraph: "Su discurso fue tan sensiblero que pareció falso.", question: "sensiblero", choices: ["Sentimentalismo excesivo", "Racional", "Aburrido"], correct: 0 },
-    { paragraph: "La pátina verde indicaba su antigüedad.", question: "pátina", choices: ["Grieta", "Capa fina en objetos antiguos", "Brillo nuevo"], correct: 1 },
-    { paragraph: "La familia cayó en la penuria.", question: "penuria", choices: ["Riqueza", "Escasez extrema de lo necesario", "Felicidad"], correct: 1 },
-    { paragraph: "Fue una victoria pírrica.", question: "pírrica", choices: ["Triunfo fácil", "Triunfo con daño mayor al beneficio", "Derrota"], correct: 1 },
-    { paragraph: "Su carácter saturnino lo hacía parecer melancólico.", question: "saturnino", choices: ["Alegre", "Persona de carácter sombrío", "Hablador"], correct: 1 },
-    { paragraph: "Avanzaban en filas serreadas.", question: "serreadas", choices: ["Dispersas", "Puestos muy juntos", "Sin uniforme"], correct: 1 },
-    { paragraph: "La cueva estaba sumida en una oscuridad estigia.", question: "estigia", choices: ["Iluminado", "Oscuridad profunda o infernal", "Cálido"], correct: 1 },
-    { paragraph: "Fue castigado por su turpitud moral.", question: "turpitud", choices: ["Virtud", "Cualidad de infame o bajeza", "Habilidad"], correct: 1 },
-    { paragraph: "Su rostro afligido mostraba tristeza.", question: "afligido", choices: ["Lleno de pesar", "Emocionado", "Cansado"], correct: 0 },
-    { paragraph: "Aceptó el desafío con alacridad.", question: "alacridad", choices: ["Pereza", "Prontitud y ánimo alegre", "Miedo"], correct: 1 },
-    { paragraph: "Ese comportamiento es un anatema para la sociedad.", question: "anatema", choices: ["Bendición", "Algo maldito o rechazado", "Tradición"], correct: 1 },
-    { paragraph: "Necesitaba bruñir su reputación.", question: "bruñir", choices: ["Dañar", "Pulir o dar brillo", "Ocultar"], correct: 1 },
-    { paragraph: "Utilizó chicanerías legales para ganar el juicio.", question: "chicanería", choices: ["Honestidad", "Artimañas o engaños", "Rapidez"], correct: 1 },
-    { paragraph: "Esa ley cayó en desuetudo hace décadas.", question: "desuetudo", choices: ["Uso constante", "Desuso de una norma o costumbre", "Vigor"], correct: 1 },
-    { paragraph: "El calor extremo lograba enervar a los viajeros.", question: "enervar", choices: ["Fortalecer", "Debilitar o quitar las fuerzas", "Enfriar"], correct: 1 },
-    { paragraph: "Es muy meticuloso y fastidioso con el orden.", question: "fastidioso", choices: ["Descuidado", "Muy exigente o difícil de complacer", "Alegre"], correct: 1 },
-    { paragraph: "Su hibris lo llevó a ignorar los consejos del grupo.", question: "hibris", choices: ["Humildad", "Orgullo o soberbia excesiva", "Sabiduría"], correct: 1 },
-    { paragraph: "El proyecto está en un estado incoado.", question: "incoado", choices: ["Terminado", "Recién empezado, incompleto", "Perfecto"], correct: 1 },
-    { paragraph: "Su carácter locuaz lo hacía el centro de la fiesta.", question: "locuaz", choices: ["Callado", "Que habla mucho o demasiado", "Triste"], correct: 1 },
-    { paragraph: "Su testimonio resultó ser mendaz.", question: "mendaz", choices: ["Sincero", "Mentiroso o falso", "Útil"], correct: 1 },
-    { paragraph: "Fue condenado por sus actos nefarios.", question: "nefario", choices: ["Heroicos", "Sumamente malvados o infames", "Justos"], correct: 1 },
-    { paragraph: "Se mostró obsequioso solo para obtener el ascenso.", question: "obsequioso", choices: ["Grosero", "Excesivamente atento o servil", "Indiferente"], correct: 1 },
-    { paragraph: "Su parsimonia le impidió gastar en lo necesario.", question: "parsimonia", choices: ["Generosidad", "Tacañería o lentitud extrema", "Lujo"], correct: 1 },
-    { paragraph: "El cliente estaba querulante por el mal servicio.", question: "querulante", choices: ["Satisfecho", "Que se queja constantemente", "Silencioso"], correct: 1 },
-    { paragraph: "Se mostró reticente a dar detalles del plan.", question: "reticente", choices: ["Entusiasta", "Reservado o que calla algo", "Sincero"], correct: 1 }
-  ]
-};
+5: [
+    { 
+        paragraph: "A pesar de la tensión, el embajador logró relajar el ambiente con un badinaje ligero antes de la reunión. Sus bromas inteligentes y juegos de palabras festivos permitieron que ambas partes bajaran la guardia.", 
+        question: "¿Qué es el 'badinaje'?", 
+        choices: ["Una discusión violenta y agresiva", "Una broma, burla o juego de palabras festivo", "Un silencio sepulcral e incómodo"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El vendedor utilizaba halagos melifluos para convencer a los clientes. Su voz era tan excesivamente dulce que, después de un tiempo, empezaba a sonar falsa y empalagosa.", 
+        question: "¿Qué significa que algo sea 'melifluo'?", 
+        choices: ["Dulce en exceso, a veces con una suavidad fingida", "Rudo y directo al hablar", "Difícil de comprender por su complejidad"], 
+        correct: 0 
+    },
+    { 
+        paragraph: "En su última columna, el periodista decidió invectivar contra los responsables del desfalco. No escatimó en palabras duras para censurar la falta de ética de los implicados.", 
+        question: "¿Qué implica 'invectivar'?", 
+        choices: ["Apoyar una causa públicamente", "Censurar o hablar con dureza contra alguien", "Ignorar la situación por completo"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "La mansión estaba decorada con figuras de plástico dorado y cuadros de colores chillones. La mayoría de los invitados pensaban que el lugar estaba lleno de objetos kitsch de mal gusto.", 
+        question: "¿Cómo se define lo 'kitsch'?", 
+        choices: ["Un estilo elegante y minimalista", "Una estética pretenciosa, cursi o de mal gusto", "Un diseño simple y funcional"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Debido al derrame de petróleo, todas las aves que anidaban en el litoral han muerto. Los biólogos están preocupados por la contaminación en la costa del mar.", 
+        question: "¿Qué región es el 'litoral'?", 
+        choices: ["Una zona de alta montaña", "La orilla o costa de un mar", "Un bosque espeso y alejado"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "La película abusaba de escenas con música lenta y despedidas bajo la lluvia. Al final, el guion resultó tan sensiblero que la emoción pareció forzada y falsa.", 
+        question: "¿Qué es algo 'sensiblero'?", 
+        choices: ["Que muestra un sentimentalismo excesivo o cursi", "Un enfoque racional y frío", "Un relato aburrido sin emociones"], 
+        correct: 0 
+    },
+    { 
+        paragraph: "La antigua moneda de cobre presentaba una pátina verde. Los coleccionistas saben que esa capa fina indica que el objeto es auténtico y muy antiguo.", 
+        question: "¿Qué es una 'pátina'?", 
+        choices: ["Una grieta profunda en el metal", "Una capa fina formada por el tiempo o el uso", "Un brillo nuevo de fábrica"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Tras la quiebra del banco, miles de familias perdieron sus ahorros y cayeron en la penuria. No tenían dinero ni para cubrir las necesidades más básicas.", 
+        question: "¿Qué define a la 'penuria'?", 
+        choices: ["Un estado de riqueza absoluta", "Escasez extrema de lo necesario, como comida", "Un sentimiento de alegría profunda"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El ejército conquistó la colina pero perdió al ochenta por ciento de sus hombres. Aunque ganaron el territorio, fue una victoria pírrica que se sintió como una derrota.", 
+        question: "¿Qué es una victoria 'pírrica'?", 
+        choices: ["Un triunfo fácil sin ningún esfuerzo", "Un triunfo donde el daño es mayor al beneficio", "Una derrota humillante ante el enemigo"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Desde que perdió su trabajo, el carácter de Roberto se volvió saturnino. Pasaba los días solo y mostraba una expresión de melancolía constante.", 
+        question: "¿Cómo es una persona 'saturnina'?", 
+        choices: ["Alguien alegre y muy optimista", "De carácter sombrío, melancólico o triste", "Una persona habladora y social"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Los guardias avanzaban en filas serreadas, moviéndose como un bloque. No había ni un centímetro de espacio entre un soldado y otro.", 
+        question: "¿Qué significa que estén 'serreadas'?", 
+        choices: ["Filas dispersas y desorganizadas", "Elementos puestos muy juntos o apretados", "Soldados que caminan sin uniforme"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Al apagar la linterna, los exploradores quedaron sumidos en una oscuridad estigia. No se veía absolutamente nada en esa cueva profunda e infernal.", 
+        question: "¿Qué describe algo 'estigio'?", 
+        choices: ["Un lugar muy iluminado", "Una oscuridad profunda, tenebrosa o infernal", "Un ambiente cálido y acogedor"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El político fue expulsado por su turpitud moral. El juez mencionó que su bajeza y falta de ética habían dañado irreversiblemente la confianza pública.", 
+        question: "¿Qué es la 'turpitud'?", 
+        choices: ["Una virtud digna de ser celebrada", "Cualidad de infame, bajeza o fealdad moral", "Una habilidad técnica excepcional"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Su rostro afligido mostraba el pesar que sentía tras la noticia. No podía ocultar la tristeza que lo consumía por dentro.", 
+        question: "¿Qué significa estar 'afligido'?", 
+        choices: ["Estar lleno de pesar, tristeza o dolor", "Sentirse emocionado por un evento", "Estar cansado físicamente"], 
+        correct: 0 
+    },
+    { 
+        paragraph: "En cuanto se anunció el voluntariado, aceptó el desafío con alacridad. Su prontitud y ánimo alegre motivaron a todo el grupo a empezar de inmediato.", 
+        question: "¿Qué demuestra alguien con 'alacridad'?", 
+        choices: ["Una pereza extrema para actuar", "Prontitud, rapidez y ánimo alegre", "Mucho miedo ante un reto nuevo"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Para ese grupo religioso, la traición a sus principios es un anatema. Es algo maldito y rechazado por todos los miembros de la comunidad.", 
+        question: "¿Qué es un 'anatema'?", 
+        choices: ["Una bendición especial", "Algo maldito, rechazado o digno de exclusión", "Una tradición familiar antigua"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El abogado tuvo que trabajar duro para bruñir su reputación después del escándalo. Necesitaba pulir su imagen para volver a ser respetado.", 
+        question: "¿Qué significa 'bruñir'?", 
+        choices: ["Dañar o ensuciar algo", "Pulir, dar brillo o mejorar la apariencia", "Ocultar la verdad a propósito"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Utilizó chicanerías legales para retrasar el juicio durante años. Esas artimañas y engaños desesperaron a los demandantes que buscaban justicia.", 
+        question: "¿Qué son las 'chicanerías'?", 
+        choices: ["Actos de honestidad absoluta", "Artimañas, enredos o engaños para ganar tiempo", "Métodos rápidos y eficientes"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Esa vieja ley sobre el transporte de carbón cayó en desuetudo hace décadas. Al ser una costumbre en desuso, ya nadie la aplica ni la recuerda.", 
+        question: "¿Qué es el 'desuetudo'?", 
+        choices: ["El uso constante de una norma", "El desuso o falta de vigencia de una ley", "El vigor y fuerza de una regla"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Caminar bajo el sol del desierto lograba enervar a los expedicionarios. El calor extremo les quitaba las fuerzas y los dejaba completamente debilitados.", 
+        question: "¿Qué significa 'enervar'?", 
+        choices: ["Fortalecer los músculos", "Debilitar o quitar las fuerzas a alguien", "Enfriar el cuerpo rápidamente"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Es un jefe muy meticuloso y fastidioso con el orden de los archivos. Es tan exigente y difícil de complacer que nadie quiere trabajar con él.", 
+        question: "¿Cómo es alguien 'fastidioso' en este contexto?", 
+        choices: ["Alguien descuidado con su trabajo", "Muy exigente, difícil de complacer o molesto", "Una persona alegre y relajada"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Su hibris lo llevó a creer que era invencible y que no necesitaba escuchar a nadie. Ese orgullo excesivo fue, finalmente, la causa de su caída.", 
+        question: "¿Qué es la 'hibris'?", 
+        choices: ["Una humildad profunda", "Orgullo, soberbia o arrogancia excesiva", "Una sabiduría ganada con los años"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El proyecto de construcción está en un estado incoado. Apenas se han puesto los cimientos y todavía está muy incompleto.", 
+        question: "¿Qué significa 'incoado'?", 
+        choices: ["Que ya está terminado y listo", "Que está recién empezado o incompleto", "Que es un diseño perfecto"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Su carácter locuaz lo hacía el centro de todas las conversaciones. Siempre tenía algo que decir y hablaba muchísimo durante toda la noche.", 
+        question: "¿Cómo es una persona 'locuaz'?", 
+        choices: ["Alguien muy callado y reservado", "Que habla mucho o demasiado", "Una persona triste y silenciosa"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El juez descubrió que el testimonio del testigo fue mendaz. Al ser una declaración mentirosa, no pudo utilizarse para dictar la sentencia.", 
+        question: "¿Qué significa 'mendaz'?", 
+        choices: ["Alguien sincero y honesto", "Que miente o es falso", "Un testimonio muy útil"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Fue condenado a cadena perpetua por sus actos nefarios. Sus crímenes fueron tan sumamente malvados que conmocionaron a todo el país.", 
+        question: "¿Qué es algo 'nefario'?", 
+        choices: ["Un acto heroico y valiente", "Sumamente malvado, impío o infame", "Una decisión justa y equilibrada"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Se mostró exageradamente obsequioso con el director de la empresa. Era tan servicial y atento que todos sabían que solo buscaba un ascenso.", 
+        question: "¿Qué es ser 'obsequioso'?", 
+        choices: ["Ser grosero con los superiores", "Excesivamente atento, rendido o servil", "Mostrarse indiferente ante los demás"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Su parsimonia le impedía gastar dinero incluso en las reparaciones necesarias de su casa. Su tacañería era conocida por todos sus vecinos.", 
+        question: "¿Qué implica la 'parsimonia' aquí?", 
+        choices: ["Una generosidad sin límites", "Tacañería, mezquindad o lentitud extrema", "Un lujo innecesario"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "El cliente estaba querulante tras esperar una hora por su comida. Se quejaba constantemente con cada camarero que pasaba por su mesa.", 
+        question: "¿Cómo es alguien 'querulante'?", 
+        choices: ["Un cliente satisfecho y amable", "Que se queja constantemente o tiene manía de quejarse", "Alguien que prefiere comer en silencio"], 
+        correct: 1 
+    },
+    { 
+        paragraph: "Se mostró reticente a dar los detalles del nuevo plan de seguridad. Parecía reservado y daba la impresión de que estaba ocultando algo importante.", 
+        question: "¿Qué es estar 'reticente'?", 
+        choices: ["Estar muy entusiasmado por hablar", "Mostrarse reservado o que calla algo a propósito", "Ser totalmente sincero y abierto"], 
+        correct: 1 
+    }
+]
+
 
 
