@@ -1,29 +1,11 @@
-// ==========================
-// script.js
-// ==========================
-
 let testWords = [];
-let testMapping = []; // Which level each word belongs to
+let testMapping = [];
 let levelScore = {1:0,2:0,3:0,4:0,5:0};
 let testIndex = 0;
 let currentLevel = 1;
 let practiceIndex = 0;
 let wrongAttempts = 0;
 
-// --------------------------
-// Define the 15 pretest words
-// --------------------------
-const pretestWords = {
-  1: ["Afirmación", "Asombroso", "Inigualable"],
-  2: ["Omnipresente", "Picante", "Panorámico"],
-  3: ["Profundidad", "Vasallo", "Descaro"],
-  4: ["Neófito", "Palurdo", "Exacerbar"],
-  5: ["Inconmensurable", "Abrogar", "Consanguinidad"]
-};
-
-// --------------------------
-// HTML elements
-// --------------------------
 const startBtn = document.getElementById("startTestBtn");
 const knowBtn = document.getElementById("knowBtn");
 const dontKnowBtn = document.getElementById("dontKnowBtn");
@@ -38,19 +20,19 @@ const questionText = document.getElementById("questionText");
 const choicesDiv = document.getElementById("choices");
 const nextBtn = document.getElementById("nextBtn");
 
-// --------------------------
-// Event listeners
-// --------------------------
-startBtn.addEventListener("click", startPlacementTest);
-knowBtn.addEventListener("click", ()=>handleTestResponse(true));
-dontKnowBtn.addEventListener("click", ()=>handleTestResponse(false));
-nextBtn.addEventListener("click", nextQuestion);
+// Pretest words (your original setup)
+const pretestWords = {
+  1: ["Afirmación", "Asombroso", "Inigualable"],
+  2: ["Omnipresente", "Picante", "Panorámico"],
+  3: ["Profundidad", "Vasallo", "Descaro"],
+  4: ["Neófito", "Palurdo", "Exacerbar"],
+  5: ["Inconmensurable", "Abrogar", "Consanguinidad"]
+};
 
-// --------------------------
-// Functions
-// --------------------------
+// ==========================
+// Placement Test Functions
+// ==========================
 function startPlacementTest() {
-  // Build the pretest arrays
   testWords = [];
   testMapping = [];
   for (let lvl = 1; lvl <= 5; lvl++) {
@@ -60,12 +42,10 @@ function startPlacementTest() {
     });
   }
 
-  // Reset counters
   testIndex = 0;
   levelScore = {1:0,2:0,3:0,4:0,5:0};
 
-  // Show the first test word
-  placementSection.querySelector("#intro-card").classList.add("hidden");
+  document.getElementById("intro-card").classList.add("hidden");
   testCard.classList.remove("hidden");
   showNextTestWord();
 }
@@ -88,7 +68,6 @@ function handleTestResponse(isKnown) {
 }
 
 function finishPretest() {
-  // Determine user level by max score
   let maxLevel = 1;
   let maxScore = 0;
   for (let lvl = 1; lvl <= 5; lvl++) {
@@ -99,7 +78,6 @@ function finishPretest() {
   }
   currentLevel = maxLevel;
 
-  // Show practice section
   levelNumEl.innerText = currentLevel;
   levelBadge.classList.remove("hidden");
   placementSection.classList.add("hidden");
@@ -109,8 +87,11 @@ function finishPretest() {
   showPracticeQuestion();
 }
 
+// ==========================
+// Practice Questions Functions
+// ==========================
 function showPracticeQuestion() {
-  const questions = practiceQuestions[currentLevel]; // From words.js
+  const questions = practiceQuestions[currentLevel]; // from words.js
   if (!questions || practiceIndex >= questions.length) {
     practiceDiv.innerHTML = `<h2>¡Nivel ${currentLevel} completado!</h2>
       <button onclick="location.reload()">Reiniciar</button>`;
@@ -126,7 +107,7 @@ function showPracticeQuestion() {
   choicesDiv.innerHTML = "";
   nextBtn.classList.add("hidden");
 
-  q.choices.forEach((choice, i)=>{
+  q.choices.forEach((choice, i) => {
     const btn = document.createElement("button");
     btn.innerText = choice;
     btn.onclick = () => checkAnswer(i, q.correct);
