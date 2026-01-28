@@ -15,8 +15,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+body {
+    display: block; /* Cambia de flex a block para permitir scroll natural */
+    overflow-y: auto;
+    padding-top: 50px;
 }
 
+#app {
+    margin: 20px auto; /* Centra el contenedor manualmente */
+}
+
+#contextParagraph {
+    text-align: left; /* Las historias largas son difíciles de leer centradas */
+    font-size: 1.1em;
+    border-left: 4px solid #6b21a8;
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
 /* ===== App Container ===== */
 #app {
   max-width: 720px;
@@ -136,6 +153,7 @@ button:hover {
 .hidden {
   display: none;
 }
+
 
 
 
