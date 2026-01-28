@@ -7,25 +7,104 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body, h1, h2, h3, p, button { font-family: 'Poppins', sans-serif; }
-    body { background: linear-gradient(135deg, #e0f7fa, #e1bee7); margin: 0; padding: 20px 0; min-height: 100vh; }
-    #app { max-width: 720px; width: 90%; margin: 40px auto; padding: 30px; background: rgba(255,255,255,0.95); border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); position: relative; }
-    #level-badge { position: absolute; top: 15px; right: 15px; background: #ff9800; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
-    #placement-section, #practice { background: #ffffff; border-radius: 15px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-    #contextParagraph { font-size: 1.15em; line-height: 1.7; margin-bottom: 20px; border-left: 5px solid #6b21a8; padding-left: 20px; color: #374151; }
-    #questionText { font-size: 1.2em; font-weight: 600; color: #6b21a8; margin-top: 20px; }
-    button { font-size: 1em; font-weight: 600; padding: 14px 20px; border: none; border-radius: 12px; cursor: pointer; transition: 0.2s; background: #4caf50; color: white; margin-top: 10px; }
-    #choices button { width: 100%; background: linear-gradient(135deg, #6b21a8, #a855f7); margin: 10px 0; text-align: left; }
-    #choices button:hover { transform: translateX(5px); }
-    #nextBtn { background: linear-gradient(135deg, #10b981, #34d399); width: 100%; }
+
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+      margin: 0;
+      padding: 20px 0;
+      min-height: 100vh;
+    }
+
+    #app {
+      max-width: 720px;
+      width: 90%;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    #level-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff9800;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+
+    #placement-section, #practice {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    #contextParagraph {
+      font-size: 1.15em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      border-left: 5px solid #6b21a8;
+      padding-left: 20px;
+      color: #374151;
+    }
+
+    #questionText {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #6b21a8;
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 1em;
+      font-weight: 600;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #4caf50;
+      color: white;
+      margin-top: 10px;
+    }
+
+    #choices button {
+      width: 100%;
+      background: linear-gradient(135deg, #6b21a8, #a855f7);
+      margin: 10px 0;
+      text-align: left;
+    }
+
+    #choices button:hover {
+      transform: translateX(5px);
+    }
+
+    #nextBtn {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      width: 100%;
+    }
+
     .hidden { display: none; }
   </style>
 </head>
+
 <body>
   <div id="app">
-    <div id="level-badge" class="hidden">Nivel: <span id="level-num">1</span></div>
+    <div id="level-badge" class="hidden">
+      Nivel: <span id="level-num">1</span>
+    </div>
+
     <h1>LinguaLift</h1>
 
+    <!-- PLACEMENT TEST -->
     <div id="placement-section">
       <div id="intro-card">
         <h2>Bienvenido</h2>
@@ -36,11 +115,14 @@
       <div id="test-card" class="hidden">
         <h3>Prueba de Nivel</h3>
         <p id="test-word"></p>
-        <button id="knownBtn">Conozco esta palabra</button>
-        <button id="unknownBtn">No conozco esta palabra</button>
+        <div>
+          <button id="knowBtn">Conozco esta palabra</button>
+          <button id="dontKnowBtn">No conozco esta palabra</button>
+        </div>
       </div>
     </div>
 
+    <!-- PRACTICE QUESTIONS -->
     <div id="practice" class="hidden">
       <p id="contextParagraph"></p>
       <p id="questionText"></p>
@@ -49,141 +131,10 @@
     </div>
   </div>
 
-  <!-- Load your words.js first -->
+  <!-- Link to your words.js -->
   <script src="words.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let testIndex = 0, practiceIndex = 0, wrongAttempts = 0, currentLevel = 1;
-      let testWords = [];
-      let testMapping = [];
-      let levelScore = {1:0,2:0,3:0,4:0,5:0};
-
-      // Pretest word list: 3 per level
-      const pretestList = {
-        1: ["afirmación", "estupendo", "insuperable"],
-        2: ["omnipresente", "penetrante", "panorámico"],
-        3: ["profundidad", "vasallo", "descaro"],
-        4: ["neófito", "palurdo", "exacerbar"],
-        5: ["inconmensurable", "abrogar", "consanguinidad"]
-      };
-
-      const startTestBtn = document.getElementById("startTestBtn");
-      const knownBtn = document.getElementById("knownBtn");
-      const unknownBtn = document.getElementById("unknownBtn");
-      const nextBtn = document.getElementById("nextBtn");
-
-      startTestBtn.addEventListener("click", startPlacementTest);
-      knownBtn.addEventListener("click", () => handleTestResponse(true));
-      unknownBtn.addEventListener("click", () => handleTestResponse(false));
-      nextBtn.addEventListener("click", nextQuestion);
-
-      function startPlacementTest() {
-        testWords = [];
-        testMapping = [];
-        for (let lvl = 1; lvl <= 5; lvl++) {
-          pretestList[lvl].forEach(word => {
-            testWords.push(word);
-            testMapping.push(lvl);
-          });
-        }
-
-        testIndex = 0;
-        levelScore = {1:0,2:0,3:0,4:0,5:0};
-
-        document.getElementById("intro-card").classList.add("hidden");
-        document.getElementById("test-card").classList.remove("hidden");
-        showNextTestWord();
-      }
-
-      function showNextTestWord() {
-        if (testIndex < testWords.length) {
-          document.getElementById("test-word").innerText = `¿Conoces esta palabra?: ${testWords[testIndex]}`;
-        } else {
-          mapLevelFromTest();
-        }
-      }
-
-      function handleTestResponse(isKnown) {
-        if (isKnown) {
-          const lvl = testMapping[testIndex];
-          levelScore[lvl]++;
-        }
-        testIndex++;
-        showNextTestWord();
-      }
-
-      function mapLevelFromTest() {
-        let maxLevel = 1, maxScore = 0;
-        for (let lvl = 1; lvl <=5; lvl++) {
-          if (levelScore[lvl] > maxScore) {
-            maxScore = levelScore[lvl];
-            maxLevel = lvl;
-          }
-        }
-        currentLevel = maxLevel;
-
-        document.getElementById("level-num").innerText = currentLevel;
-        document.getElementById("level-badge").classList.remove("hidden");
-        document.getElementById("placement-section").classList.add("hidden");
-        document.getElementById("practice").classList.remove("hidden");
-
-        practiceIndex = 0;
-        showPracticeQuestion();
-      }
-
-      function showPracticeQuestion() {
-        const questions = practiceQuestions[currentLevel];
-        if (!questions || practiceIndex >= questions.length) {
-          document.getElementById("practice").innerHTML =
-            `<h2>¡Nivel ${currentLevel} completado!</h2>
-             <button onclick="location.reload()">Reiniciar</button>`;
-          return;
-        }
-
-        const q = questions[practiceIndex];
-        wrongAttempts = 0;
-
-        document.getElementById("contextParagraph").innerText = q.paragraph;
-        document.getElementById("questionText").innerText = q.question;
-
-        const choices = document.getElementById("choices");
-        choices.innerHTML = "";
-        nextBtn.classList.add("hidden");
-
-        q.choices.forEach((choice,i)=>{
-          const btn = document.createElement("button");
-          btn.innerText = choice;
-          btn.onclick = () => checkAnswer(i,q.correct);
-          choices.appendChild(btn);
-        });
-      }
-
-      function checkAnswer(selected, correct) {
-        const buttons = document.querySelectorAll("#choices button");
-        if (selected === correct) {
-          buttons[selected].style.background = "#4caf50";
-          buttons.forEach(b => b.disabled = true);
-          nextBtn.classList.remove("hidden");
-        } else {
-          buttons[selected].style.background = "#f44336";
-          buttons[selected].disabled = true;
-          wrongAttempts++;
-          if (wrongAttempts >= 2) {
-            const questions = practiceQuestions[currentLevel];
-            const q = questions[practiceIndex];
-            buttons[q.correct].style.background = "#4caf50";
-            buttons.forEach(b => b.disabled = true);
-            nextBtn.classList.remove("hidden");
-          }
-        }
-      }
-
-      function nextQuestion() {
-        practiceIndex++;
-        showPracticeQuestion();
-      }
-    });
-  </script>
+  <!-- Your script.js will go here -->
+  <script src="script.js"></script>
 </body>
 </html>
