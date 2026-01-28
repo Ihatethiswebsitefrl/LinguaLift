@@ -1,3 +1,7 @@
+// ==========================
+// script.js (cleaned)
+// ==========================
+
 let testWords = [];
 let testMapping = [];
 let levelScore = {1:0,2:0,3:0,4:0,5:0};
@@ -6,6 +10,9 @@ let currentLevel = 1;
 let practiceIndex = 0;
 let wrongAttempts = 0;
 
+// --------------------------
+// HTML elements
+// --------------------------
 const startBtn = document.getElementById("startTestBtn");
 const knowBtn = document.getElementById("knowBtn");
 const dontKnowBtn = document.getElementById("dontKnowBtn");
@@ -20,7 +27,9 @@ const questionText = document.getElementById("questionText");
 const choicesDiv = document.getElementById("choices");
 const nextBtn = document.getElementById("nextBtn");
 
-// Pretest words (your original setup)
+// --------------------------
+// Pretest words
+// --------------------------
 const pretestWords = {
   1: ["Afirmación", "Asombroso", "Inigualable"],
   2: ["Omnipresente", "Picante", "Panorámico"],
@@ -29,12 +38,21 @@ const pretestWords = {
   5: ["Inconmensurable", "Abrogar", "Consanguinidad"]
 };
 
+// --------------------------
+// Event listeners
+// --------------------------
+startBtn.addEventListener("click", startPlacementTest);
+knowBtn.addEventListener("click", ()=>handleTestResponse(true));
+dontKnowBtn.addEventListener("click", ()=>handleTestResponse(false));
+nextBtn.addEventListener("click", nextQuestion);
+
 // ==========================
 // Placement Test Functions
 // ==========================
 function startPlacementTest() {
   testWords = [];
   testMapping = [];
+
   for (let lvl = 1; lvl <= 5; lvl++) {
     pretestWords[lvl].forEach(word => {
       testWords.push(word);
@@ -91,8 +109,16 @@ function finishPretest() {
 // Practice Questions Functions
 // ==========================
 function showPracticeQuestion() {
-  const questions = practiceQuestions[currentLevel]; // from words.js
-  if (!questions || practiceIndex >= questions.length) {
+  // Safety check: ensure practiceQuestions exists
+  if (typeof practiceQuestions === "undefined" || !practiceQuestions[currentLevel]) {
+    practiceDiv.innerHTML = `<h2>No hay preguntas disponibles para el Nivel ${currentLevel}.</h2>
+      <button onclick="location.reload()">Reiniciar</button>`;
+    return;
+  }
+
+  const questions = practiceQuestions[currentLevel];
+
+  if (practiceIndex >= questions.length) {
     practiceDiv.innerHTML = `<h2>¡Nivel ${currentLevel} completado!</h2>
       <button onclick="location.reload()">Reiniciar</button>`;
     return;
@@ -101,12 +127,14 @@ function showPracticeQuestion() {
   const q = questions[practiceIndex];
   wrongAttempts = 0;
 
-  contextParagraph.innerText = q.paragraph;
-  questionText.innerText = q.question;
+  // Safety checks for paragraph and question
+  contextParagraph.innerText = q.paragraph || "(No hay párrafo disponible)";
+  questionText.innerText = q.question || "(No hay pregunta disponible)";
 
   choicesDiv.innerHTML = "";
   nextBtn.classList.add("hidden");
 
+  // Add choice buttons
   q.choices.forEach((choice, i) => {
     const btn = document.createElement("button");
     btn.innerText = choice;
@@ -118,16 +146,18 @@ function showPracticeQuestion() {
 function checkAnswer(selected, correct) {
   const buttons = document.querySelectorAll("#choices button");
   if (selected === correct) {
-    buttons[selected].style.background = "#4caf50";
+    buttons[selected].style.background = "#4caf50"; // green
     buttons.forEach(b => b.disabled = true);
     nextBtn.classList.remove("hidden");
   } else {
-    buttons[selected].style.background = "#f44336";
+    buttons[selected].style.background = "#f44336"; // red
     buttons[selected].disabled = true;
     wrongAttempts++;
     if (wrongAttempts >= 2) {
       const q = practiceQuestions[currentLevel][practiceIndex];
-      buttons[q.correct].style.background = "#4caf50";
+      if (q && typeof q.correct !== "undefined") {
+        buttons[q.correct].style.background = "#4caf50";
+      }
       buttons.forEach(b => b.disabled = true);
       nextBtn.classList.remove("hidden");
     }
