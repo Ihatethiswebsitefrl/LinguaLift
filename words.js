@@ -1,6 +1,6 @@
 // words.js - El Almacén de Vocabulario (30 words per level)
 const practiceQuestions = {
-  // NIVEL 1: Vocabulario Básico y Cotidiano (Daily life, simple emotions, physical traits)
+  // NIVEL 1: Vocabulario Básico y Cotidiano
   1: [
     { paragraph: "Después de ganar el torneo, el equipo se sentía muy feliz.", question: "¿Qué sentimiento describe 'feliz'?", choices: ["Tristeza", "Gran alegría", "Cansancio"], correct: 1 },
     { paragraph: "La casa de mi abuela es antigua; fue construida hace cien años.", question: "¿Qué es 'antiguo'?", choices: ["Nuevo", "Que tiene muchos años", "Color verde"], correct: 1 },
@@ -12,7 +12,6 @@ const practiceQuestions = {
     { paragraph: "La sopa está muy caliente, ten cuidado.", question: "¿Qué es 'caliente'?", choices: ["Frío", "A temperatura alta", "Congelado"], correct: 1 },
     { paragraph: "Ese camino es muy corto para llegar a la escuela.", question: "¿Qué es 'corto'?", choices: ["De poca longitud", "Muy largo", "Ancho"], correct: 0 },
     { paragraph: "El niño estaba triste porque perdió su juguete.", question: "¿Qué es 'triste'?", choices: ["Feliz", "Apenado o con dolor moral", "Enojado"], correct: 1 },
-    // ... (Adding 20 more entries for Level 1)
     { paragraph: "La ropa está limpia después de lavarla.", question: "¿Qué es 'limpia'?", choices: ["Sucia", "Sin manchas o suciedad", "Nueva"], correct: 1 },
     { paragraph: "Es un hombre muy fuerte; levanta pesas pesadas.", question: "¿Qué es 'fuerte'?", choices: ["Débil", "Con gran vigor o resistencia", "Delgado"], correct: 1 },
     { paragraph: "El coche es nuevo, lo compraron ayer.", question: "¿Qué es 'nuevo'?", choices: ["Usado", "Recién hecho o adquirido", "Roto"], correct: 1 },
@@ -35,7 +34,7 @@ const practiceQuestions = {
     { paragraph: "El niño es muy valiente y no tiene miedo.", question: "¿Qué es 'valiente'?", choices: ["Cobarde", "Que actúa con valor", "Tímido"], correct: 1 }
   ],
 
-  // NIVEL 2: Vocabulario Intermedio (Personality, daily verbs, social interaction)
+  // NIVEL 2: Vocabulario Intermedio
   2: [
     { paragraph: "Juan empezó a dudar de su respuesta.", question: "¿Qué es 'dudar'?", choices: ["Estar seguro", "Tener inseguridad", "Gritar"], correct: 1 },
     { paragraph: "Para el piano, se necesita paciencia.", question: "¿Qué es 'paciencia'?", choices: ["Capacidad de esperar", "Rapidez", "Enojo"], correct: 0 },
@@ -68,27 +67,41 @@ const practiceQuestions = {
     { paragraph: "La voz del cantante es potente.", question: "¿Qué es 'potente'?", choices: ["Débil", "Que tiene fuerza o poder", "Suave"], correct: 1 },
     { paragraph: "El viaje fue increíble.", question: "¿Qué es 'increíble'?", choices: ["Normal", "Difícil de creer o extraordinario", "Malo"], correct: 1 }
   ],
+  // NIVEL 3: Vocabulario Avanzado
+  3: [
+    { paragraph: "Habló con elocuencia.", question: "elocuencia", choices: ["Confusión", "Fluidez y elegancia al hablar", "Silencio"], correct: 1 },
+    { paragraph: "Su perseverancia fue clave.", question: "perseverancia", choices: ["Rendirse", "Constancia en un objetivo", "Pereza"], correct: 1 },
+    { paragraph: "Hizo un análisis detallado.", question: "análisis", choices: ["Resumen", "Examen minucioso", "Vistazo"], correct: 1 },
+    { paragraph: "La situación es relevante.", question: "relevante", choices: ["Insignificante", "Importante o destacado", "Aburrido"], correct: 1 },
+    { paragraph: "Es un cambio sutil.", question: "sutil", choices: ["Obvio", "Delicado o difícil de percibir", "Fuerte"], correct: 1 },
+    { paragraph: "Su conducta fue ejemplar.", question: "ejemplar", choices: ["Mala", "Digno de ser imitado", "Común"], correct: 1 },
+    { paragraph: "El argumento es coherente.", question: "coherente", choices: ["Ilógico", "Que tiene conexión lógica", "Largo"], correct: 1 },
+    { paragraph: "Logró mitigar el dolor.", question: "mitigar", choices: ["Aumentar", "Moderar o suavizar", "Ignorar"], correct: 1 },
+    { paragraph: "Es una persona audaz.", question: "audaz", choices: ["Miedosa", "Valiente y osada", "Lenta"], correct: 1 },
+    { paragraph: "Sintió una gran nostalgia.", question: "nostalgia", choices: ["Alegría", "Pena por la ausencia", "Miedo"], correct: 1 },
+    { paragraph: "Su creatividad es admirable.", question: "creatividad", choices: ["Falta de ideas", "Capacidad de crear cosas nuevas", "Imitación"], correct: 1 },
+    { paragraph: "Su juicio fue imparcial.", question: "imparcial", choices: ["Parcial", "Justo y sin favoritismos", "Erróneo"], correct: 1 },
+    { paragraph: "El discurso fue persuasivo.", question: "persuasivo", choices: ["Ineficaz", "Capaz de convencer", "Confuso"], correct: 1 },
+    { paragraph: "Su reacción fue espontánea.", question: "espontáneo", choices: ["Planeado", "Natural y sin preparación", "Forzado"], correct: 1 },
+    { paragraph: "Demostró gran resiliencia.", question: "resiliencia", choices: ["Fragilidad", "Capacidad de recuperarse de dificultades", "Ignorancia"], correct: 1 },
+    { paragraph: "El problema era complejo.", question: "complejo", choices: ["Simple", "Complicado y con varias partes", "Fácil"], correct: 1 },
+    { paragraph: "Su enfoque era meticuloso.", question: "meticuloso", choices: ["Descuidado", "Atento a los detalles", "Rápido"], correct: 1 },
+    { paragraph: "La estrategia era innovadora.", question: "innovadora", choices: ["Anticuada", "Que introduce algo nuevo", "Común"], correct: 1 },
+    { paragraph: "Mostró una actitud diplomática.", question: "diplomática", choices: ["Ofensiva", "Sensible y cuidadosa en relaciones", "Irrespetuosa"], correct: 1 },
+    { paragraph: "Su estilo era conciso.", question: "conciso", choices: ["Extenso", "Breve y claro", "Confuso"], correct: 1 },
+    { paragraph: "El debate fue riguroso.", question: "riguroso", choices: ["Superficial", "Exigente y preciso", "Ligero"], correct: 1 },
+    { paragraph: "Su crítica fue constructiva.", question: "constructiva", choices: ["Destructiva", "Que ayuda a mejorar", "Inútil"], correct: 1 },
+    { paragraph: "El tema era controvertido.", question: "controvertido", choices: ["Aceptado", "Que genera discusión o debate", "Sencillo"], correct: 1 },
+    { paragraph: "Su aprendizaje fue autodidacta.", question: "autodidacta", choices: ["Guiado por otros", "Que aprende por sí mismo", "Imposible"], correct: 1 },
+    { paragraph: "El resultado fue extraordinario.", question: "extraordinario", choices: ["Común", "Fuera de lo común, excepcional", "Normal"], correct: 1 },
+    { paragraph: "Su intuición fue acertada.", question: "intuición", choices: ["Razonamiento lento", "Capacidad de entender sin análisis", "Error"], correct: 1 },
+    { paragraph: "El enfoque era sistemático.", question: "sistemático", choices: ["Caótico", "Organizado según un método", "Rápido"], correct: 1 },
+    { paragraph: "Su análisis fue exhaustivo.", question: "exhaustivo", choices: ["Superficial", "Completo y minucioso", "Incompleto"], correct: 1 },
+    { paragraph: "Su actitud era pragmática.", question: "pragmática", choices: ["Idealista", "Práctica y enfocada en resultados", "Irreal"], correct: 1 },
+    { paragraph: "El proyecto era interdisciplinario.", question: "interdisciplinario", choices: ["Un solo tema", "Que combina varias disciplinas", "Simple"], correct: 1 }
+  ],
 
-  // NIVEL 3: Vocabulario Avanzado (Critical thinking, nuanced emotions)
-  3: Array.from({ length: 30 }, (_, i) => {
-    const list = [
-      { p: "Habló con elocuencia.", q: "elocuencia", c: ["Confusión", "Fluidez y elegancia al hablar", "Silencio"], r: 1 },
-      { p: "Su perseverancia fue clave.", q: "perseverancia", c: ["Rendirse", "Constancia en un objetivo", "Pereza"], r: 1 },
-      { p: "Hizo un análisis detallado.", q: "análisis", c: ["Resumen", "Examen minucioso", "Vistazo"], r: 1 },
-      { p: "La situación es relevante.", q: "relevante", c: ["Insignificante", "Importante o destacado", "Aburrido"], r: 1 },
-      { p: "Es un cambio sutil.", q: "sutil", c: ["Obvio", "Delicado o difícil de percibir", "Fuerte"], r: 1 },
-      { p: "Su conducta fue ejemplar.", q: "ejemplar", c: ["Mala", "Digno de ser imitado", "Común"], r: 1 },
-      { p: "El argumento es coherente.", q: "coherente", c: ["Ilógico", "Que tiene conexión lógica", "Largo"], r: 1 },
-      { p: "Logró mitigar el dolor.", q: "mitigar", c: ["Aumentar", "Moderar o suavizar", "Ignorar"], r: 1 },
-      { p: "Es una persona audaz.", q: "audaz", c: ["Miedosa", "Valiente y osada", "Lenta"], r: 1 },
-      { p: "Sintió una gran nostalgia.", q: "nostalgia", c: ["Alegría", "Pena por la ausencia", "Miedo"], r: 1 }
-      // ... (Note: For brevity in the UI, I've truncated the structure here, but in the final code block below, all 30 are included)
-    ];
-    // This is just a conceptual preview; the full script below contains all 30 items.
-    return list[i];
-  }),
-
-  // NIVEL 4: Vocabulario Académico y Formal (Nuanced logic, professional context)
+  // NIVEL 4: Vocabulario Académico y Formal
   4: [
     { paragraph: "Fue una decisión prudente.", question: "prudente", choices: ["Moderación y cautela", "Descuidado", "Prisa"], correct: 0 },
     { paragraph: "El análisis fue eficiente.", question: "eficiente", choices: ["Desperdicia recursos", "Logra el fin con el mínimo recurso", "Lento"], correct: 1 },
@@ -100,7 +113,6 @@ const practiceQuestions = {
     { paragraph: "La evidencia es tangible.", question: "tangible", choices: ["Imaginaria", "Que se puede tocar o percibir claramente", "Falsa"], correct: 1 },
     { paragraph: "El acuerdo es vinculante.", question: "vinculante", choices: ["Opcional", "Que obliga a las partes", "Breve"], correct: 1 },
     { paragraph: "Su estilo es sobrio.", question: "sobrio", choices: ["Exagerado", "Sencillo y sin adornos", "Caro"], correct: 1 },
-    // (Filling to 30 with academic terms...)
     { paragraph: "La propuesta es viable.", question: "viable", choices: ["Imposible", "Que puede llevarse a cabo", "Difícil"], correct: 1 },
     { paragraph: "Es un tema recurrente.", question: "recurrente", choices: ["Único", "Que vuelve a ocurrir", "Nuevo"], correct: 1 },
     { paragraph: "El clima es inhóspito.", question: "inhóspito", choices: ["Acogedor", "Lugar incómodo o poco seguro", "Bello"], correct: 1 },
@@ -123,32 +135,31 @@ const practiceQuestions = {
     { paragraph: "La reunión fue fructífera.", question: "fructífera", choices: ["Inútil", "Que produce frutos o resultados", "Larga"], correct: 1 }
   ],
 
-  // NIVEL 5: Vocabulario de Alto Nivel (SAT/GRE Style) - All 30 entries
+  // NIVEL 5: Vocabulario de Alto Nivel (SAT/GRE)
   5: [
     { paragraph: "La cena estuvo marcada por un badinaje ligero.", question: "badinaje", choices: ["Discusión violenta", "Broma o juego de palabras festivo", "Silencio"], correct: 1 },
-    { paragraph: "Sus halagos resultaron melifluos y excesivos.", question: "melifluo (fulsome)", choices: ["Dulce en exceso, a veces falso", "Rudo", "Difícil"], correct: 0 },
-    { paragraph: "El columnista suele invectivar contra la corrupción.", question: "invectivar (inveigh)", choices: ["Apoyar", "Censurar o hablar con dureza", "Ignorar"], correct: 1 },
+    { paragraph: "Sus halagos resultaron melifluos y excesivos.", question: "melifluo", choices: ["Dulce en exceso, a veces falso", "Rudo", "Difícil"], correct: 0 },
+    { paragraph: "El columnista suele invectivar contra la corrupción.", question: "invectivar", choices: ["Apoyar", "Censurar o hablar con dureza", "Ignorar"], correct: 1 },
     { paragraph: "La sala estaba llena de objetos kitsch.", question: "kitsch", choices: ["Elegante", "Estética pretenciosa o de mal gusto", "Simple"], correct: 1 },
     { paragraph: "La fauna del litoral se ve afectada.", question: "litoral", choices: ["Montaña", "Costa de un mar", "Bosque"], correct: 1 },
-    { paragraph: "Su discurso fue tan sensiblero que pareció falso.", question: "sensiblero (mawkish)", choices: ["Sentimentalismo excesivo", "Racional", "Aburrido"], correct: 0 },
+    { paragraph: "Su discurso fue tan sensiblero que pareció falso.", question: "sensiblero", choices: ["Sentimentalismo excesivo", "Racional", "Aburrido"], correct: 0 },
     { paragraph: "La pátina verde indicaba su antigüedad.", question: "pátina", choices: ["Grieta", "Capa fina en objetos antiguos", "Brillo nuevo"], correct: 1 },
     { paragraph: "La familia cayó en la penuria.", question: "penuria", choices: ["Riqueza", "Escasez extrema de lo necesario", "Felicidad"], correct: 1 },
     { paragraph: "Fue una victoria pírrica.", question: "pírrica", choices: ["Triunfo fácil", "Triunfo con daño mayor al beneficio", "Derrota"], correct: 1 },
     { paragraph: "Su carácter saturnino lo hacía parecer melancólico.", question: "saturnino", choices: ["Alegre", "Persona de carácter sombrío", "Hablador"], correct: 1 },
-    { paragraph: "Avanzaban en filas serreadas (serried).", question: "apretado (serried)", choices: ["Dispersas", "Puestos muy juntos", "Sin uniforme"], correct: 1 },
-    { paragraph: "La cueva estaba sumida en una oscuridad estigia.", question: "estigio (stygian)", choices: ["Iluminado", "Oscuridad profunda o infernal", "Cálido"], correct: 1 },
+    { paragraph: "Avanzaban en filas serreadas.", question: "serreadas", choices: ["Dispersas", "Puestos muy juntos", "Sin uniforme"], correct: 1 },
+    { paragraph: "La cueva estaba sumida en una oscuridad estigia.", question: "estigia", choices: ["Iluminado", "Oscuridad profunda o infernal", "Cálido"], correct: 1 },
     { paragraph: "Fue castigado por su turpitud moral.", question: "turpitud", choices: ["Virtud", "Cualidad de infame o bajeza", "Habilidad"], correct: 1 },
-    { paragraph: "Su rostro afligido (woebegone) mostraba tristeza.", question: "afligido (woebegone)", choices: ["Lleno de pesar", "Emocionado", "Cansado"], correct: 0 },
-    // New level 5 words (16 more to reach 30)
+    { paragraph: "Su rostro afligido mostraba tristeza.", question: "afligido", choices: ["Lleno de pesar", "Emocionado", "Cansado"], correct: 0 },
     { paragraph: "Aceptó el desafío con alacridad.", question: "alacridad", choices: ["Pereza", "Prontitud y ánimo alegre", "Miedo"], correct: 1 },
     { paragraph: "Ese comportamiento es un anatema para la sociedad.", question: "anatema", choices: ["Bendición", "Algo maldito o rechazado", "Tradición"], correct: 1 },
-    { paragraph: "Necesitaba bruñir su reputación.", question: "bruñir (burnish)", choices: ["Dañar", "Pulir o dar brillo", "Ocultar"], correct: 1 },
+    { paragraph: "Necesitaba bruñir su reputación.", question: "bruñir", choices: ["Dañar", "Pulir o dar brillo", "Ocultar"], correct: 1 },
     { paragraph: "Utilizó chicanerías legales para ganar el juicio.", question: "chicanería", choices: ["Honestidad", "Artimañas o engaños", "Rapidez"], correct: 1 },
     { paragraph: "Esa ley cayó en desuetudo hace décadas.", question: "desuetudo", choices: ["Uso constante", "Desuso de una norma o costumbre", "Vigor"], correct: 1 },
     { paragraph: "El calor extremo lograba enervar a los viajeros.", question: "enervar", choices: ["Fortalecer", "Debilitar o quitar las fuerzas", "Enfriar"], correct: 1 },
     { paragraph: "Es muy meticuloso y fastidioso con el orden.", question: "fastidioso", choices: ["Descuidado", "Muy exigente o difícil de complacer", "Alegre"], correct: 1 },
-    { paragraph: "Su hibris lo llevó a ignorar los consejos del grupo.", question: "hibris (hubris)", choices: ["Humildad", "Orgullo o soberbia excesiva", "Sabiduría"], correct: 1 },
-    { paragraph: "El proyecto está en un estado incoado.", question: "incoado (inchoate)", choices: ["Terminado", "Recién empezado, incompleto", "Perfecto"], correct: 1 },
+    { paragraph: "Su hibris lo llevó a ignorar los consejos del grupo.", question: "hibris", choices: ["Humildad", "Orgullo o soberbia excesiva", "Sabiduría"], correct: 1 },
+    { paragraph: "El proyecto está en un estado incoado.", question: "incoado", choices: ["Terminado", "Recién empezado, incompleto", "Perfecto"], correct: 1 },
     { paragraph: "Su carácter locuaz lo hacía el centro de la fiesta.", question: "locuaz", choices: ["Callado", "Que habla mucho o demasiado", "Triste"], correct: 1 },
     { paragraph: "Su testimonio resultó ser mendaz.", question: "mendaz", choices: ["Sincero", "Mentiroso o falso", "Útil"], correct: 1 },
     { paragraph: "Fue condenado por sus actos nefarios.", question: "nefario", choices: ["Heroicos", "Sumamente malvados o infames", "Justos"], correct: 1 },
@@ -158,3 +169,4 @@ const practiceQuestions = {
     { paragraph: "Se mostró reticente a dar detalles del plan.", question: "reticente", choices: ["Entusiasta", "Reservado o que calla algo", "Sincero"], correct: 1 }
   ]
 };
+
