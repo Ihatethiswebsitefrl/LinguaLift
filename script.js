@@ -26,6 +26,8 @@ const contextParagraph = document.getElementById("contextParagraph");
 const questionText = document.getElementById("questionText");
 const choicesDiv = document.getElementById("choices");
 const nextBtn = document.getElementById("nextBtn");
+const currentWordEl = document.getElementById("current-word");
+
 
 // --------------------------
 // Pretest words
@@ -158,4 +160,5 @@ function nextQuestion() {
   practiceIndex++;
   showPracticeQuestion();
 }
+
 
