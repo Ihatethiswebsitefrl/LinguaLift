@@ -1,73 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css" />
-  <title>LinguaLift</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaLift - Spanish Learning</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
+    <h1>LinguaLift</h1>
 
-    <!-- Website title / “logo” top-right -->
-    <div class="site-title">
-      LinguaLift
-    </div>
+      <!-- Placement Test Section -->
+      <div id="placement-section">
+        <div id="intro-card">
+          <h2>Bienvenido</h2>
+          <p>Vamos a determinar tu nivel actual de español.</p>
+          <button id="startTestBtn">Comenzar Prueba de Nivel</button>
+        </div>
 
-    <!-- Question container -->
-    <div id="question-container">
-      <!-- Word top-left -->
-      <div id="current-word" class="word-display"></div>
-
-      <!-- Paragraph -->
-      <p id="contextParagraph"></p>
-
-      <!-- Question text -->
-      <p id="questionText"></p>
-
-      <!-- Choices buttons -->
-      <div id="choices"></div>
-
-      <!-- Next button -->
-      <button id="nextBtn" class="hidden">Siguiente</button>
-    </div>
-
-    <!-- Level Badge -->
-    <div id="level-badge" class="hidden">
-      Nivel: <span id="level-num">1</span>
-    </div>
-
-    <!-- Placement Test Section -->
-    <div id="placement-section">
-
-      <!-- Intro Card -->
-      <div id="intro-card">
-        <h2>Bienvenido</h2>
-        <p>Vamos a determinar tu nivel actual de español.</p>
-        <button id="startTestBtn">Comenzar Prueba de Nivel</button>
+        <div id="test-card" class="hidden">
+          <h3>Prueba de Nivel</h3>
+          <p id="test-word"></p>
+          <div class="test-actions">
+            <button id="knowBtn">Conozco esta palabra</button>
+            <button id="dontKnowBtn">No conozco esta palabra</button>
+          </div>
+          <p id="test-progress"></p>
+        </div>
       </div>
 
-      <!-- Test Card -->
-      <div id="test-card" class="hidden">
-        <h3>Prueba de Nivel</h3>
-        <p id="test-word"></p>
-        <button id="knowBtn">Conozco esta palabra</button>
-        <button id="dontKnowBtn">No conozco esta palabra</button>
+      <!-- Practice Mode Section -->
+      <div id="practice" class="hidden">
+        <div id="level-badge" class="hidden">Nivel: <span id="level-num">1</span></div>
+        <div id="word-display"><h2 id="current-word"></h2></div>
+        <p id="contextParagraph"></p>
+        <p id="questionText"></p>
+        <div id="choices"></div>
+        <button id="nextBtn" class="hidden">Siguiente</button>
       </div>
-
-    </div>
-
-    <!-- Practice Section -->
-    <div id="practice" class="hidden">
-      <!-- This section will be handled dynamically by JS -->
-    </div>
-
   </div>
 
-  <!-- Load words.js first -->
   <script src="words.js"></script>
-
-  <!-- Then load main script -->
   <script src="script.js"></script>
 </body>
 </html>
