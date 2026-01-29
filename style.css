@@ -30,6 +30,29 @@ body {
   font-weight: bold;
 }
 
+/* =======================
+   Site Title / Top-right
+   ======================= */
+.site-title {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  z-index: 1000;
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.site-title:hover {
+  transform: scale(1.05);
+}
+
 
 #app {
   width: 90%;
@@ -83,6 +106,7 @@ button {
   background: linear-gradient(135deg, #10b981, #34d399);
   width: 100%;
 }
+
 
 
 
