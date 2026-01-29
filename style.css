@@ -15,26 +15,29 @@ body {
   align-items: flex-start;
   padding: 40px 0;
 }
+/* HEADER / LOGO TOP-RIGHT */
 .header {
   position: fixed;      /* keeps it visible while scrolling */
   top: 0;
-  right: 0;             /* move it to the top-right */
+  right: 0;             /* top-right corner */
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: white; /* optional, so it’s readable over content */
-  z-index: 1000;        /* stays on top */
+  background-color: white; /* makes it readable over content */
+  z-index: 1000;
 }
 
 .logo {
-  height: 50px;         /* adjust size as needed */
+  height: 50px;
   width: auto;
-  margin-left: 10px;    /* space between word display and logo */
 }
 
+/* WORD DISPLAY TOP-LEFT OF PARAGRAPH */
 .word-display {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 #app {
@@ -89,4 +92,5 @@ button {
   background: linear-gradient(135deg, #10b981, #34d399);
   width: 100%;
 }
+
 
