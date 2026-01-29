@@ -4,34 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="style.css" />
+  <title>LinguaLift</title>
 </head>
 <body>
   <div id="app">
 
-    <!-- Website title top-right -->
+    <!-- Website title / "logo" top-right -->
     <div class="site-title">
       LinguaLift
     </div>
 
-    <!-- Question container -->
+    <!-- Question Container -->
     <div id="question-container">
-      <!-- Word top-left -->
-      <div id="current-word" class="word-display"></div>
-      
-      <!-- Paragraph / context -->
-      <p id="paragraph"></p>
-      
-      <!-- Choices -->
-      <ul id="choices"></ul>
+      <div id="current-word" class="word-display"></div> <!-- word top-left -->
+      <p id="contextParagraph"></p> <!-- paragraph text -->
+      <div id="choices"></div> <!-- choices for practice questions -->
+      <button id="nextBtn" class="hidden">Siguiente</button>
     </div>
 
     <!-- Level Badge -->
     <div id="level-badge" class="hidden">
       Nivel: <span id="level-num">1</span>
     </div>
-
-    <!-- App Title (you can remove this if you only want top-right title) -->
-    <!-- <h1>LinguaLift</h1> -->
 
     <!-- Placement Test Section -->
     <div id="placement-section">
@@ -55,10 +49,7 @@
 
     <!-- Practice Section -->
     <div id="practice" class="hidden">
-      <p id="contextParagraph"></p>
-      <p id="questionText"></p>
-      <div id="choices"></div>
-      <button id="nextBtn" class="hidden">Siguiente</button>
+      <!-- The content is shown in #question-container, so this can stay empty -->
     </div>
 
   </div>
@@ -66,13 +57,7 @@
   <!-- Load words.js first -->
   <script src="words.js"></script>
 
-  <!-- Then load your main script -->
+  <!-- Then load main script -->
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
