@@ -15,30 +15,23 @@ body {
   align-items: flex-start;
   padding: 40px 0;
 }
-/* HEADER / LOGO TOP-RIGHT */
-.header {
-  position: fixed;      /* keeps it visible while scrolling */
-  top: 0;
-  right: 0;             /* top-right corner */
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: white; /* makes it readable over content */
+/* Website title top-right */
+.site-title {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
   z-index: 1000;
 }
 
-.logo {
-  height: 50px;
-  width: auto;
+/* Current word above paragraph */
+.word-display {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* WORD DISPLAY TOP-LEFT OF PARAGRAPH */
-.word-display {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  text-align: left;
-}
 
 #app {
   width: 90%;
@@ -92,5 +85,6 @@ button {
   background: linear-gradient(135deg, #10b981, #34d399);
   width: 100%;
 }
+
 
 
