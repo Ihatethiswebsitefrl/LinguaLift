@@ -9,16 +9,26 @@
 <body>
   <div id="app">
 
-    <!-- Website title / "logo" top-right -->
+    <!-- Website title / “logo” top-right -->
     <div class="site-title">
       LinguaLift
     </div>
 
-    <!-- Question Container -->
+    <!-- Question container -->
     <div id="question-container">
-      <div id="current-word" class="word-display"></div> <!-- word top-left -->
-      <p id="contextParagraph"></p> <!-- paragraph text -->
-      <div id="choices"></div> <!-- choices for practice questions -->
+      <!-- Word top-left -->
+      <div id="current-word" class="word-display"></div>
+
+      <!-- Paragraph -->
+      <p id="contextParagraph"></p>
+
+      <!-- Question text -->
+      <p id="questionText"></p>
+
+      <!-- Choices buttons -->
+      <div id="choices"></div>
+
+      <!-- Next button -->
       <button id="nextBtn" class="hidden">Siguiente</button>
     </div>
 
@@ -49,7 +59,7 @@
 
     <!-- Practice Section -->
     <div id="practice" class="hidden">
-      <!-- The content is shown in #question-container, so this can stay empty -->
+      <!-- This section will be handled dynamically by JS -->
     </div>
 
   </div>
