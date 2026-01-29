@@ -15,6 +15,27 @@ body {
   align-items: flex-start;
   padding: 40px 0;
 }
+.header {
+  position: fixed;      /* keeps it visible while scrolling */
+  top: 0;
+  right: 0;             /* move it to the top-right */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: white; /* optional, so it’s readable over content */
+  z-index: 1000;        /* stays on top */
+}
+
+.logo {
+  height: 50px;         /* adjust size as needed */
+  width: auto;
+  margin-left: 10px;    /* space between word display and logo */
+}
+
+.word-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
 #app {
   width: 90%;
@@ -68,3 +89,4 @@ button {
   background: linear-gradient(135deg, #10b981, #34d399);
   width: 100%;
 }
+
