@@ -109,62 +109,53 @@ function finishPretest() {
 // Practice Questions Functions
 // ==========================
 function showPracticeQuestion() {
-  // Safety check: ensure practiceQuestions exists
-  if (typeof practiceQuestions === "undefined" || !practiceQuestions[currentLevel]) {
-    practiceDiv.innerHTML = `<h2>No hay preguntas disponibles para el Nivel ${currentLevel}.</h2>
-      <button onclick="location.reload()">Reiniciar</button>`;
-    return;
-  }
-
-  const questions = practiceQuestions[currentLevel];
-
-  if (practiceIndex >= questions.length) {
-    practiceDiv.innerHTML = `<h2>¡Nivel ${currentLevel} completado!</h2>
-      <button onclick="location.reload()">Reiniciar</button>`;
-    return;
-  }
-
-  const q = questions[practiceIndex];
-  wrongAttempts = 0;
-
-  // Safety checks for paragraph and question
-  contextParagraph.innerText = q.paragraph || "(No hay párrafo disponible)";
-  questionText.innerText = q.question || "(No hay pregunta disponible)";
-
-  choicesDiv.innerHTML = "";
-  nextBtn.classList.add("hidden");
-
-  // Add choice buttons
-  q.choices.forEach((choice, i) => {
-    const btn = document.createElement("button");
-    btn.innerText = choice;
-    btn.onclick = () => checkAnswer(i, q.correct);
-    choicesDiv.appendChild(btn);
-  });
-}
-
-function checkAnswer(selected, correct) {
-  const buttons = document.querySelectorAll("#choices button");
-  if (selected === correct) {
-    buttons[selected].style.background = "#4caf50"; // green
-    buttons.forEach(b => b.disabled = true);
-    nextBtn.classList.remove("hidden");
-  } else {
-    buttons[selected].style.background = "#f44336"; // red
-    buttons[selected].disabled = true;
-    wrongAttempts++;
-    if (wrongAttempts >= 2) {
-      const q = practiceQuestions[currentLevel][practiceIndex];
-      if (q && typeof q.correct !== "undefined") {
-        buttons[q.correct].style.background = "#4caf50";
-      }
-      buttons.forEach(b => b.disabled = true);
-      nextBtn.classList.remove("hidden");
+    // Safety check: ensure practiceQuestions exists
+    if (typeof practiceQuestions === "undefined" || !practiceQuestions[currentLevel]) {
+        practiceDiv.innerHTML = `<h2>No hay preguntas disponibles para el Nivel ${currentLevel}.</h2>
+          <button onclick="location.reload()">Reiniciar</button>`;
+        return;
     }
-  }
+
+    const questions = practiceQuestions[currentLevel];
+
+    if (practiceIndex >= questions.length) {
+        practiceDiv.innerHTML = `<h2>¡Nivel ${currentLevel} completado!</h2>
+          <button onclick="location.reload()">Reiniciar</button>`;
+        return;
+    }
+
+    const q = questions[practiceIndex];
+    wrongAttempts = 0;
+
+    // Show the current word from words.js
+    currentWordEl.innerText = q.word || "(sin palabra)";
+
+    // Fade effect for paragraph & choices
+    contextParagraph.style.opacity = 0;
+    choicesDiv.style.opacity = 0;
+
+    setTimeout(() => {
+        contextParagraph.innerText = q.paragraph || "(No hay párrafo disponible)";
+        questionText.innerText = q.question || "(No hay pregunta disponible)";
+
+        choicesDiv.innerHTML = "";
+        q.choices.forEach((choice, i) => {
+            const btn = document.createElement("button");
+            btn.innerText = choice;
+            btn.onclick = () => checkAnswer(i, q.correct);
+            choicesDiv.appendChild(btn);
+        });
+
+        contextParagraph.style.opacity = 1;
+        choicesDiv.style.opacity = 1;
+    }, 100);
+    
+    nextBtn.classList.add("hidden");
 }
+
 
 function nextQuestion() {
   practiceIndex++;
   showPracticeQuestion();
 }
+
