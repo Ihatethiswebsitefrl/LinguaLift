@@ -516,7 +516,7 @@ const practiceQuestions = {
   paragraph: "El activista habló ante la asamblea usando datos reales y ejemplos conmovedores sobre el cambio climático. Al final de su charla, muchas personas que antes no creían en el problema decidieron empezar a reciclar. El discurso fue persuasivo y logró cambiar la mentalidad de la audiencia.", 
    question: "¿Qué cualidad tiene algo 'persuasivo'?", choices: ["Que es ineficaz y nadie presta atención a lo que se dice.", "Que tiene la capacidad o fuerza para convencer a alguien.", "Algo confuso que genera más dudas que respuestas."], 
    correct: 1 },
-   
+
   { 
     word: "espontáneo",
    paragraph: "Cuando el músico escuchó el ritmo de los tambores en la calle, tomó su flauta y empezó a tocar una melodía que nunca había practicado. No hubo ensayos ni partituras; la música salió directamente de su corazón en ese momento. Su reacción fue espontánea y encantó a los transeúntes.", 
@@ -1052,5 +1052,4 @@ const practiceQuestions = {
 
 
 
-
-
+}
